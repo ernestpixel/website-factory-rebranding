@@ -1,0 +1,255 @@
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
+import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { MagneticButton } from "@/components/ui/magnetic-button"
+import { cn } from "@/lib/utils"
+import { ArrowRight, CheckCircle2, Loader2, Send } from "lucide-react"
+
+const projectTypes = [
+  { value: "website", label: "Website de prezentare" },
+  { value: "magazin", label: "Magazin online (E-commerce)" },
+  { value: "aplicatie", label: "Aplicație web / mobilă" },
+  { value: "altul", label: "Alt tip de proiect" },
+]
+
+export function ContactForm() {
+  const { ref, isVisible } = useScrollReveal()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    nume: "",
+    email: "",
+    telefon: "",
+    tipProiect: "",
+    companie: "",
+    mesaj: "",
+  })
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+
+    setIsSubmitting(false)
+    setIsSubmitted(true)
+  }
+
+  const handleChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  if (isSubmitted) {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "glass-card rounded-3xl p-8 md:p-12 border border-border/50 transition-all duration-700",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+        )}
+      >
+        <div className="text-center py-12">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 mb-6">
+            <CheckCircle2 className="w-10 h-10 text-green-500" />
+          </div>
+          <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">Mesaj trimis cu succes!</h3>
+          <p className="text-muted-foreground max-w-md mx-auto">
+            Mulțumim pentru mesaj! Echipa noastră te va contacta în cel mai scurt timp posibil, de obicei în maxim 24 de
+            ore.
+          </p>
+          <button
+            onClick={() => {
+              setIsSubmitted(false)
+              setFormData({
+                nume: "",
+                email: "",
+                telefon: "",
+                tipProiect: "",
+                companie: "",
+                mesaj: "",
+              })
+            }}
+            className="mt-8 text-brand hover:text-brand-light transition-colors font-medium inline-flex items-center gap-2"
+          >
+            Trimite alt mesaj
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "glass-card rounded-3xl p-8 md:p-12 border border-border/50 relative overflow-hidden transition-all duration-700",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+      )}
+    >
+      {/* Decorative corner accent */}
+      <div className="absolute -top-20 -right-20 w-40 h-40 bg-brand/10 rounded-full blur-[60px]" />
+      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-glow-violet/10 rounded-full blur-[60px]" />
+
+      <div className="relative z-10">
+        <div className="mb-8">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-3">
+            Solicită o ofertă gratuită
+          </h2>
+          <p className="text-muted-foreground">
+            Completează formularul și vom reveni cu o propunere personalizată pentru proiectul tău.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Row 1: Nume & Email */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label htmlFor="nume" className="text-sm font-medium text-foreground">
+                Nume complet <span className="text-brand">*</span>
+              </label>
+              <Input
+                id="nume"
+                type="text"
+                placeholder="Ion Popescu"
+                required
+                value={formData.nume}
+                onChange={(e) => handleChange("nume", e.target.value)}
+                className="h-12 rounded-xl bg-background/50 border-border/50 focus:border-brand focus:ring-brand/20"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-medium text-foreground">
+                Adresă email <span className="text-brand">*</span>
+              </label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="ion@exemplu.ro"
+                required
+                value={formData.email}
+                onChange={(e) => handleChange("email", e.target.value)}
+                className="h-12 rounded-xl bg-background/50 border-border/50 focus:border-brand focus:ring-brand/20"
+              />
+            </div>
+          </div>
+
+          {/* Row 2: Telefon & Tip Proiect */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label htmlFor="telefon" className="text-sm font-medium text-foreground">
+                Număr de telefon <span className="text-brand">*</span>
+              </label>
+              <Input
+                id="telefon"
+                type="tel"
+                placeholder="+40 7XX XXX XXX"
+                required
+                value={formData.telefon}
+                onChange={(e) => handleChange("telefon", e.target.value)}
+                className="h-12 rounded-xl bg-background/50 border-border/50 focus:border-brand focus:ring-brand/20"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="tipProiect" className="text-sm font-medium text-foreground">
+                Tip proiect <span className="text-brand">*</span>
+              </label>
+              <Select value={formData.tipProiect} onValueChange={(value) => handleChange("tipProiect", value)} required>
+                <SelectTrigger className="h-12 w-full rounded-xl bg-background/50 border-border/50 focus:border-brand focus:ring-brand/20">
+                  <SelectValue placeholder="Selectează tipul proiectului" />
+                </SelectTrigger>
+                <SelectContent>
+                  {projectTypes.map((type) => (
+                    <SelectItem key={type.value} value={type.value}>
+                      {type.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          {/* Row 3: Companie (optional) */}
+          <div className="space-y-2">
+            <label htmlFor="companie" className="text-sm font-medium text-foreground">
+              Companie <span className="text-muted-foreground text-xs">(opțional)</span>
+            </label>
+            <Input
+              id="companie"
+              type="text"
+              placeholder="Numele companiei tale"
+              value={formData.companie}
+              onChange={(e) => handleChange("companie", e.target.value)}
+              className="h-12 rounded-xl bg-background/50 border-border/50 focus:border-brand focus:ring-brand/20"
+            />
+          </div>
+
+          {/* Row 4: Message */}
+          <div className="space-y-2">
+            <label htmlFor="mesaj" className="text-sm font-medium text-foreground">
+              Cu ce te putem ajuta? <span className="text-brand">*</span>
+            </label>
+            <Textarea
+              id="mesaj"
+              placeholder="Descrie pe scurt proiectul tău, obiectivele și orice alte detalii relevante..."
+              required
+              rows={5}
+              value={formData.mesaj}
+              onChange={(e) => handleChange("mesaj", e.target.value)}
+              className="rounded-xl bg-background/50 border-border/50 focus:border-brand focus:ring-brand/20 resize-none"
+            />
+          </div>
+
+          {/* Privacy notice */}
+          <p className="text-xs text-muted-foreground">
+            Prin trimiterea acestui formular, ești de acord cu{" "}
+            <a href="/politici-de-confidentialitate" className="text-brand hover:underline">
+              Politica de confidențialitate
+            </a>{" "}
+            și{" "}
+            <a href="/termeni-si-conditii" className="text-brand hover:underline">
+              Termenii și condițiile
+            </a>
+            .
+          </p>
+
+          {/* Submit Button */}
+          <MagneticButton className="w-full sm:w-auto" strength={0.2}>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-brand text-brand-foreground font-semibold text-base shadow-lg hover:shadow-brand/30 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed overflow-hidden"
+            >
+              {/* Animated gradient overlay */}
+              <span
+                className="absolute inset-0 bg-gradient-to-r from-brand via-brand-light to-brand bg-[length:200%_100%] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ animation: "gradient-shift 3s ease infinite" }}
+              />
+
+              <span className="relative z-10 flex items-center gap-3">
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Se trimite...
+                  </>
+                ) : (
+                  <>
+                    Trimite mesajul
+                    <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                  </>
+                )}
+              </span>
+            </button>
+          </MagneticButton>
+        </form>
+      </div>
+    </div>
+  )
+}
