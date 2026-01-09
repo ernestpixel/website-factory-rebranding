@@ -9,17 +9,17 @@ const faqs = [
   {
     question: "Cât durează dezvoltarea unui website?",
     answer:
-      "Durata depinde de complexitatea proiectului. Un website de prezentare poate fi gata în 2-4 săptămâni, în timp ce un magazin online sau o aplicație web complexă poate dura 6-12 săptămâni. Vom stabili împreună un timeline clar în faza de planificare.",
+      "Un site de prezentare standard este gata în 2-4 săptămâni. Proiectele complexe precum magazinele online sau aplicațiile custom pot dura 5-12 săptămâni. Respectăm întotdeauna deadline-urile agreate."
   },
   {
     question: "Care este prețul pentru un website?",
     answer:
-      "Prețurile variază în funcție de cerințele specifice ale proiectului. Un website de prezentare pornește de la 1.500€, un magazin online de la 2.500€, iar aplicațiile custom sunt estimate individual. Oferim întotdeauna o ofertă detaliată și transparentă înainte de a începe.",
+      "Prețul variază în funcție de complexitate. Un site de prezentare poate începe de la 650 EUR, iar un magazin online de la 1000 EUR. Oferim consultanță gratuită pentru a stabili exact ce ai nevoie și un preț în funcție de specificațiile proiectului.",
   },
   {
-    question: "Oferiți suport și mentenanță după lansare?",
+    question: "Pot să îmi administrez singur site-ul după lansare?",
     answer:
-      "Da, oferim pachete de mentenanță lunară care includ actualizări de securitate, backup-uri regulate, modificări minore de conținut și suport tehnic. Suntem partenerii tăi pe termen lung, nu doar pentru dezvoltare.",
+      "Absolut. Predăm site-uri cu panou de administrare intuitiv și prezentarea platformei. Dacă preferi, avem și pachete de mentenanță lunară pentru gestionarea completă.",
   },
   {
     question: "Cum funcționează procesul de colaborare?",
@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Lucrați cu clienți din afara Timișoarei?",
     answer:
-      "Absolut! Deși suntem bazați în Timișoara, lucrăm cu clienți din toată România și din străinătate. Comunicăm eficient prin video call-uri, email și platforme de project management. Distanța nu este niciodată o barieră.",
+      "Absolut! Deși suntem localizați în Timișoara, lucrăm cu clienți din toată România și din străinătate. Comunicăm eficient prin video call-uri, email și platforme de project management. Distanța nu este niciodată o barieră.",
   },
 ]
 

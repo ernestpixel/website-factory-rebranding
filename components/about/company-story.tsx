@@ -10,24 +10,24 @@ const storyPoints = [
     icon: Lightbulb,
     title: "Ideea",
     description:
-      "Am început cu o idee simplă: fiecare afacere merită o prezență online care să reflecte adevărata sa valoare.",
+      "O prezență online bună începe cu o fundație clară: obiective, structură, mesaj. Noi transformăm ideea ta într-un produs digital coerent, ușor de folosit și ușor de crescut.",
   },
   {
     icon: Target,
     title: "Misiunea",
     description:
-      "Nu creăm doar site-uri. Construim instrumente de business care generează lead-uri, vânzări și creștere.",
+      "Construim soluții web care aduc valoare măsurabilă: mai multe cereri, mai multă încredere, conversii mai bune. Fără promisiuni goale — doar pași clari și execuție solidă.",
   },
   {
     icon: Rocket,
     title: "Viziunea",
     description:
-      "Să fim agenția de web design din România cunoscută pentru rezultate măsurabile, nu doar design frumos.",
+      "Ridicăm standardul pentru web design în România: design curat + tehnic impecabil + SEO făcut corect + comunicare clară. Un web modern, rapid, accesibil și pregătit pentru scalare.",
   },
   {
     icon: Heart,
     title: "Pasiunea",
-    description: "Fiecare proiect primește aceeași atenție și dedicare, indiferent de dimensiune sau buget.",
+    description: "Ne pasă de detalii: micro-interacțiuni, performanță, securitate. Pentru noi, „gata” înseamnă testat, optimizat și livrat cu grijă — indiferent de mărimea proiectului.",
   },
 ]
 
@@ -54,7 +54,7 @@ export function CompanyStory() {
             Povestea noastră
           </span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-            De la doi antreprenori la <span className="gradient-text">o echipă de experți</span>
+            O echipă din Timișoara.<br></br> <span className="gradient-text">Un standard global.</span>
           </h2>
         </div>
 
@@ -67,8 +67,8 @@ export function CompanyStory() {
               imageVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12",
             )}
           >
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
-              <Image src="/modern-creative-agency-office-workspace-with-compu.jpg" alt="Biroul Website Factory" fill className="object-cover" />
+            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden">
+              <Image src="/Alex-Ernest-Website-Factory.webp" alt="Biroul Website Factory" fill className="object-cover" />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-tr from-brand/30 via-transparent to-glow-violet/20" />
             </div>
@@ -77,10 +77,9 @@ export function CompanyStory() {
             <div className="absolute -bottom-8 -right-4 lg:-right-8 max-w-xs">
               <div className="glass-premium rounded-2xl p-6">
                 <p className="text-sm italic text-foreground/80 leading-relaxed">
-                  "Când am început Website Factory, visul nostru era să ajutăm afacerile locale să concureze la nivel
-                  global."
+                  "Building the web, one dream at a time"
                 </p>
-                <p className="mt-3 text-xs font-semibold text-brand">— Ernest & Alex, Co-fondatori</p>
+                <p className="mt-3 text-xs font-semibold text-blue-600">— Ernest & Alex, Co-fondatori</p>
               </div>
             </div>
 
@@ -100,14 +99,12 @@ export function CompanyStory() {
             )}
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Website Factory a luat naștere în 2021 în Timișoara, din dorința a doi tineri antreprenori de a schimba
-              modul în care afacerile românești abordează prezența online.
+              Website Factory s-a născut în Timișoara dintr-o idee simplă: online-ul trebuie să lucreze pentru business, nu doar să arate bine. Din 2023 construim site-uri, magazine online și soluții digitale cu focus pe claritate, viteză și experiență reală pentru utilizator.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Am observat că majoritatea agențiilor livrau site-uri frumoase, dar care nu generau rezultate concrete. Am
-              decis să facem lucrurile diferit:{" "}
+              Lucrăm transparent, explicăm tehnicul pe înțeles și urmăm un proces clar pentru fiecare proiect — de la strategie și structură, până la design, dezvoltare și lansare. Ne plac deciziile corecte, bazate pe obiective, nu pe „trenduri”.{" "}
               <strong className="text-foreground">
-                fiecare pixel, fiecare linie de cod trebuie să servească un scop de business.
+                Fiecare pixel, fiecare linie de cod trebuie să servească un scop de business.
               </strong>
             </p>
 

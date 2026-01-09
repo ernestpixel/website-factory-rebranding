@@ -67,16 +67,16 @@ export function AboutHero() {
           </h1>
 
           <p className="mt-8 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto text-pretty">
-            Din 2021, suntem partenerii de încredere ai companiilor din România care vor să domine spațiul digital.
+            Din 2023, suntem partenerii de încredere ai companiilor din România și Europa care vor o identitate digitală puternică.
             Combinăm creativitatea cu tehnologia pentru rezultate măsurabile.
           </p>
 
           {/* Stats row in hero */}
           <div className="mt-12 flex flex-wrap justify-center gap-8 md:gap-16">
             {[
-              { value: "2021", label: "Anul fondării" },
+              { value: "2023", label: "Anul fondării" },
               { value: "150+", label: "Proiecte livrate" },
-              { value: "100%", label: "Clienți mulțumiți" },
+              { value: "100%", label: "Dedicare" },
             ].map((stat, index) => (
               <div
                 key={stat.label}
