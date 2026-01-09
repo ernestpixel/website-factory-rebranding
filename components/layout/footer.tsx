@@ -73,22 +73,22 @@ export function Footer() {
             {/* Contact info */}
             <div className="mt-6 space-y-3">
               <a
-                href="mailto:contact@websitefactory.ro"
+                href="mailto:office@websitefactory.ro"
                 className="flex items-center gap-3 text-sm text-muted-foreground hover:text-brand transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center group-hover:bg-brand/20 transition-colors">
                   <Mail className="w-4 h-4 text-brand" />
                 </div>
-                contact@websitefactory.ro
+                office@websitefactory.ro
               </a>
               <a
-                href="tel:+40123456789"
+                href="tel:+40728567830"
                 className="flex items-center gap-3 text-sm text-muted-foreground hover:text-brand transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center group-hover:bg-brand/20 transition-colors">
                   <Phone className="w-4 h-4 text-brand" />
                 </div>
-                +40 123 456 789
+                +40 728 567 830
               </a>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center">

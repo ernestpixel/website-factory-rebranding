@@ -8,15 +8,15 @@ const contactDetails = [
   {
     icon: Phone,
     label: "Telefon",
-    value: "+40 700 000 000",
-    href: "tel:+40700000000",
+    value: "+40 728 567 830",
+    href: "tel:+40728567830",
     description: "Luni - Vineri, 09:00 - 18:00",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "contact@websitefactory.ro",
-    href: "mailto:contact@websitefactory.ro",
+    value: "office@websitefactory.ro",
+    href: "mailto:office@websitefactory.ro",
     description: "Răspundem în max. 24h",
   },
   {

@@ -96,7 +96,7 @@ export function ContactFaq() {
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">Nu ai găsit răspunsul pe care îl cauți?</p>
             <a
-              href="mailto:contact@websitefactory.ro"
+              href="mailto:office@websitefactory.ro"
               className="inline-flex items-center gap-2 text-brand hover:text-brand-light font-medium transition-colors"
             >
               Trimite-ne un email direct

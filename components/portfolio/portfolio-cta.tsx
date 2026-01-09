@@ -98,7 +98,7 @@ export function PortfolioCta() {
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 hover:text-white px-8 h-14 text-base font-semibold bg-transparent"
               >
-                <a href="tel:+40700000000">
+                <a href="tel:+40728567830">
                   <Phone className="mr-2 h-5 w-5" />
                   Sună-ne direct
                 </a>

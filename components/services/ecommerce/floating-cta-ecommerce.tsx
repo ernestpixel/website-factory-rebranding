@@ -30,14 +30,14 @@ export function FloatingCtaEcommerce() {
         )}
       >
         <a
-          href="tel:+40700000000"
+          href="tel:+40728567830"
           className="flex items-center gap-3 px-5 py-3 rounded-full bg-green-500 text-white font-medium shadow-lg hover:bg-green-600 transition-colors"
         >
           <Phone className="w-5 h-5" />
           <span>Sună acum</span>
         </a>
         <a
-          href="https://wa.me/40700000000"
+          href="https://wa.me/40728567830"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 px-5 py-3 rounded-full bg-[#25D366] text-white font-medium shadow-lg hover:bg-[#20BD5A] transition-colors"

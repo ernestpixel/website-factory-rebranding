@@ -15,8 +15,8 @@ export const siteConfig = {
     addressCountry: "RO",
   },
   contact: {
-    telephone: "+40700000000",
-    email: "contact@websitefactory.ro",
+    telephone: "+40728567830",
+    email: "office@websitefactory.ro",
   },
 }
 

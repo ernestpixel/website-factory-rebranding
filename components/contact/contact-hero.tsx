@@ -68,7 +68,7 @@ export function ContactHero() {
           {/* Quick contact badges */}
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
-              href="tel:+40700000000"
+              href="tel:+40728567830"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-card border border-border/50 hover:border-brand/50 transition-all duration-300 group"
             >
               <svg className="w-4 h-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -80,11 +80,11 @@ export function ContactHero() {
                 />
               </svg>
               <span className="text-sm font-medium text-foreground group-hover:text-brand transition-colors">
-                +40 700 000 000
+                +40 728 567 830
               </span>
             </a>
             <a
-              href="mailto:contact@websitefactory.ro"
+              href="mailto:office@websitefactory.ro"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-card border border-border/50 hover:border-brand/50 transition-all duration-300 group"
             >
               <svg className="w-4 h-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -96,7 +96,7 @@ export function ContactHero() {
                 />
               </svg>
               <span className="text-sm font-medium text-foreground group-hover:text-brand transition-colors">
-                contact@websitefactory.ro
+                office@websitefactory.ro
               </span>
             </a>
           </div>

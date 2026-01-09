@@ -81,7 +81,7 @@ export function AboutCTA() {
             </MagneticButton>
 
             <Link
-              href="tel:+40700000000"
+              href="tel:+40728567830"
               className="group flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-full border border-border/50 hover:border-brand/50 glass-premium transition-all duration-300 hover:glow-subtle"
             >
               <span className="flex items-center justify-center w-10 h-10 rounded-full bg-brand/10 group-hover:bg-brand/20 transition-colors">

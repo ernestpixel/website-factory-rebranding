@@ -68,7 +68,7 @@ export function AppCta() {
             </MagneticButton>
 
             <Link
-              href="tel:+40700000000"
+              href="tel:+40728567830"
               className="group flex items-center justify-center gap-3 px-8 py-4 sm:py-5 rounded-full border-2 border-white/30 hover:border-white/60 text-white transition-all duration-300 w-full sm:w-auto"
             >
               <Phone className="w-5 h-5" />
@@ -79,7 +79,7 @@ export function AppCta() {
           {/* Quick Contact Options */}
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <Link
-              href="https://wa.me/40700000000"
+              href="https://wa.me/40728567830"
               target="_blank"
               className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
             >

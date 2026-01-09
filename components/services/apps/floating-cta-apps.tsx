@@ -36,7 +36,7 @@ export function FloatingCtaApps() {
           )}
         >
           <a
-            href="tel:+40700000000"
+            href="tel:+40728567830"
             className="flex items-center gap-3 px-4 py-3 bg-card border border-border rounded-full shadow-lg hover:border-brand/50 transition-all group whitespace-nowrap"
           >
             <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
@@ -45,7 +45,7 @@ export function FloatingCtaApps() {
             <span className="font-medium pr-2">Sună acum</span>
           </a>
           <a
-            href="https://wa.me/40700000000"
+            href="https://wa.me/40728567830"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-4 py-3 bg-card border border-border rounded-full shadow-lg hover:border-brand/50 transition-all group whitespace-nowrap"

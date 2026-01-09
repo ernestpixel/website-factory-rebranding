@@ -117,9 +117,9 @@ export function ClujHero() {
 
             <Link
               href="/portofoliu"
-              className="group flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-border/50 hover:border-brand/50 glass-premium transition-all duration-300"
+              className="group flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-border/50 hover:border-brand/50 glass-premium transition-all duration-300"
             >
-              <span className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand/10 group-hover:bg-brand/20 transition-colors">
+              <span className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand/10 group-hover:bg-brand/20 transition-colors">
                 <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand ml-0.5" />
               </span>
               <span className="font-medium text-sm sm:text-base">Vezi portofoliu</span>

@@ -75,7 +75,7 @@ export function CityCTA({ cityName }: CityCTAProps) {
             </MagneticButton>
 
             <Link
-              href="tel:+40700000000"
+              href="tel:+40728567830"
               className="group flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-full border border-border/50 hover:border-brand/50 glass-premium transition-all duration-300"
             >
               <Phone className="w-5 h-5 text-brand" />

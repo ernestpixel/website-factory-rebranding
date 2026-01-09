@@ -76,7 +76,7 @@ export function ServiceCTA() {
             </MagneticButton>
 
             <Link
-              href="tel:+40700000000"
+              href="tel:+40728567830"
               className="flex items-center gap-3 px-8 py-4 rounded-full border-2 border-white/30 hover:border-white/60 text-white font-semibold transition-all duration-300 hover:bg-white/10"
             >
               <Phone className="w-5 h-5" />
@@ -87,14 +87,14 @@ export function ServiceCTA() {
           {/* Contact options */}
           <div className="mt-12 flex flex-wrap justify-center gap-8">
             <a
-              href="mailto:contact@websitefactory.ro"
+              href="mailto:office@websitefactory.ro"
               className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
             >
               <Mail className="w-4 h-4" />
-              <span>contact@websitefactory.ro</span>
+              <span>office@websitefactory.ro</span>
             </a>
             <a
-              href="https://wa.me/40700000000"
+              href="https://wa.me/40728567830"
               className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
             >
               <MessageCircle className="w-4 h-4" />

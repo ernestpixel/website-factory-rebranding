@@ -76,7 +76,7 @@ export function EcommerceCta() {
             </MagneticButton>
 
             <Link
-              href="tel:+40700000000"
+              href="tel:+40728567830"
               className="group flex items-center gap-3 px-8 py-4 rounded-full border border-white/30 hover:border-white/60 text-white transition-all duration-300"
             >
               <Phone className="w-5 h-5" />

@@ -47,14 +47,14 @@ export function FloatingCTA() {
 
           <div className="space-y-2">
             <a
-              href="tel:+40700000000"
+              href="tel:+40728567830"
               className="flex items-center gap-3 p-3 rounded-xl bg-brand text-brand-foreground font-medium hover:bg-brand-light transition-colors"
             >
               <Phone className="w-5 h-5" />
               <span>Sună acum</span>
             </a>
             <a
-              href="https://wa.me/40700000000"
+              href="https://wa.me/40728567830"
               className="flex items-center gap-3 p-3 rounded-xl bg-green-500 text-white font-medium hover:bg-green-600 transition-colors"
             >
               <MessageCircle className="w-5 h-5" />
