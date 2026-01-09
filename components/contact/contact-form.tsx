@@ -19,9 +19,10 @@ const projectTypes = [
 ]
 
 export function ContactForm() {
-  const { ref, isVisible } = useScrollReveal()
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     nume: "",
     email: "",
@@ -34,12 +35,36 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.nume,
+          email: formData.email,
+          phone: formData.telefon,
+          company: formData.companie || undefined,
+          message: formData.mesaj,
+        }),
+      })
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Eroare la trimiterea mesajului")
+      }
+
+      setIsSubmitted(true)
+    } catch (err) {
+      console.error("Form submission error:", err)
+      setError(err instanceof Error ? err.message : "A apărut o eroare. Te rugăm să încerci din nou.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (field: string, value: string) => {
@@ -219,6 +244,13 @@ export function ContactForm() {
             </a>
             .
           </p>
+
+          {/* Error message */}
+          {error && (
+            <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-600 text-sm">
+              {error}
+            </div>
+          )}
 
           {/* Submit Button */}
           <MagneticButton className="w-full sm:w-auto" intensity={0.2} as="div">

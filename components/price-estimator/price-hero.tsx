@@ -61,11 +61,11 @@ export function PriceEstimatorHero() {
           {/* Label */}
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 text-sm font-medium text-brand mb-6">
             <Calculator className="w-4 h-4" />
-            Calculator Preț Instant
+            Calculator Preț Website
           </span>
 
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-            Află cât costă <span className="gradient-text-animated">site-ul tău</span>
+            Estimează cât costă <br></br><span className="gradient-text-animated">site-ul tău</span>
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto text-pretty">

@@ -154,9 +154,10 @@ function calculatePrice(state: FormState): { price: number | null; text: string;
 }
 
 export function PriceEstimatorWizard() {
-  const { ref, isVisible } = useScrollReveal()
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>()
   const [showResult, setShowResult] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [formState, setFormState] = useState<FormState>({
     step: 1,
     projectType: null,
@@ -231,12 +232,60 @@ export function PriceEstimatorWizard() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (canProceed()) {
-      setIsSubmitting(true)
-      // Simulate API call delay for UX
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-      setIsSubmitting(false)
+    if (!canProceed()) return
+
+    setIsSubmitting(true)
+    setError(null)
+
+    try {
+      const result = calculatePrice(formState)
+      const projectTypeName = projectTypes.find((t) => t.id === formState.projectType)?.title || formState.projectType
+
+      // Prepare features array
+      const features: string[] = []
+      if (formState.projectType === "presentation") {
+        features.push(`${formState.pages} pagini`)
+        formState.extras.forEach((extraId) => {
+          const extra = presentationExtras.find((e) => e.id === extraId)
+          if (extra) features.push(extra.label)
+        })
+      } else if (formState.projectType === "shop") {
+        const productOption = productOptions.find((p) => p.value === formState.products)
+        if (productOption) features.push(productOption.label)
+        formState.extras.forEach((extraId) => {
+          const extra = shopExtras.find((e) => e.id === extraId)
+          if (extra) features.push(extra.label)
+        })
+      }
+
+      const response = await fetch("/api/price-estimate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formState.userInfo.name,
+          email: formState.userInfo.email,
+          phone: formState.userInfo.phone,
+          projectType: projectTypeName,
+          budget: formState.budget || undefined,
+          features: features.length > 0 ? features : undefined,
+          estimatedPrice: result.text,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Eroare la trimiterea cererii")
+      }
+
       setShowResult(true)
+    } catch (err) {
+      console.error("Form submission error:", err)
+      setError(err instanceof Error ? err.message : "A apărut o eroare. Te rugăm să încerci din nou.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -252,6 +301,7 @@ export function PriceEstimatorWizard() {
       userInfo: { name: "", email: "", phone: "" },
     })
     setShowResult(false)
+    setError(null)
   }
 
   const result = calculatePrice(formState)
@@ -271,12 +321,16 @@ export function PriceEstimatorWizard() {
           className="absolute top-20 right-10 w-64 h-64 rounded-full bg-brand/5 blur-[80px]"
           delay={0}
           duration={12}
-        />
+        >
+          <div />
+        </FloatingElement>
         <FloatingElement
           className="absolute bottom-20 left-10 w-48 h-48 rounded-full bg-glow-violet/10 blur-[60px]"
           delay={2}
           duration={10}
-        />
+        >
+          <div />
+        </FloatingElement>
       </div>
 
       {/* Decorative metallic shapes */}
@@ -708,6 +762,15 @@ export function PriceEstimatorWizard() {
                     </div>
                   )}
                 </div>
+
+                {/* Error message */}
+                {error && (
+                  <div className="px-6 md:px-10">
+                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-600 text-sm">
+                      {error}
+                    </div>
+                  </div>
+                )}
 
                 {/* Navigation buttons */}
                 <div className="p-6 md:px-10 border-t border-border/50 bg-muted/20">
