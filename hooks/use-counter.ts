@@ -37,14 +37,23 @@ export function useCounter({ start = 0, end, duration = 2000, startOnView = true
     if (!hasStarted) return
 
     let startTimestamp: number | null = null
+    // Check if we need to preserve decimals
+    const hasDecimals = start % 1 !== 0 || end % 1 !== 0
+    
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp
       const progress = Math.min((timestamp - startTimestamp) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3) // Ease out cubic
-      setCount(Math.floor(start + (end - start) * eased))
+      const newCount = start + (end - start) * eased
+      
+      // Preserve decimals if either start or end has decimals, otherwise round down
+      setCount(hasDecimals ? newCount : Math.floor(newCount))
 
       if (progress < 1) {
         requestAnimationFrame(step)
+      } else {
+        // Ensure final value is exact
+        setCount(end)
       }
     }
 

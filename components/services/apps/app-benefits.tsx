@@ -40,7 +40,7 @@ const stats = [
 ]
 
 function AnimatedStat({ stat, isActive, index }: { stat: (typeof stats)[0]; isActive: boolean; index: number }) {
-  const { count } = useCounter({
+  const { count, ref } = useCounter({
     start: 0,
     end: stat.value,
     duration: 2000,
@@ -50,6 +50,7 @@ function AnimatedStat({ stat, isActive, index }: { stat: (typeof stats)[0]; isAc
 
   return (
     <div
+      ref={ref}
       className={cn(
         "relative p-6 sm:p-8 rounded-2xl border transition-all duration-500 group overflow-hidden",
         isActive ? "bg-brand/5 border-brand/30 scale-[1.02]" : "bg-card/50 border-border/50 hover:border-brand/20",
@@ -124,7 +125,7 @@ function AnimatedStat({ stat, isActive, index }: { stat: (typeof stats)[0]; isAc
 export function AppBenefits() {
   const { ref, isVisible } = useScrollReveal()
   const [activeIndex, setActiveIndex] = useState(0)
-  const intervalRef = useRef<NodeJS.Timeout>()
+  const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {

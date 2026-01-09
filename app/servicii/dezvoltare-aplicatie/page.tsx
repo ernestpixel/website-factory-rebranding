@@ -31,7 +31,7 @@ const appFaqs = [
   {
     question: "Cât costă să dezvolt o aplicație mobilă?",
     answer:
-      "Costul unei aplicații mobile variază în funcție de complexitate. O aplicație MVP simplă pornește de la 8.000€, aplicații de complexitate medie între 15.000-40.000€, iar aplicații enterprise pot ajunge la 100.000€+. Oferim consultanță gratuită pentru a stabili exact ce funcționalități ai nevoie și un buget realist.",
+      "Costul unei aplicații mobile variază mult în funcție de complexitate. O aplicație MVP simplă pornește de la 4.000€, aplicații de complexitate medie între 12.000-40.000€, iar aplicații enterprise pot ajunge la 100.000€+. Oferim consultanță gratuită pentru a stabili exact ce funcționalități ai nevoie și un buget realist.",
   },
   {
     question: "React Native sau aplicații native separate?",
@@ -41,7 +41,7 @@ const appFaqs = [
   {
     question: "Cât durează dezvoltarea unei aplicații?",
     answer:
-      "Un MVP funcțional poate fi gata în 8-12 săptămâni. Aplicații complete de complexitate medie durează 12-20 săptămâni, iar platforme SaaS enterprise pot necesita 24-40 săptămâni. Lucrăm în sprint-uri de 2 săptămâni cu demo-uri regulate.",
+      "Un MVP funcțional poate fi gata în 8-12 săptămâni. Aplicații complete de complexitate medie durează 12-20 săptămâni, iar platforme SaaS enterprise pot necesita 24-40 săptămâni sau chiar mai mult, în funcție de complexitate. Lucrăm în sprint-uri de 2 săptămâni cu demo-uri regulate.",
   },
   {
     question: "Ce este Payload CMS și de ce îl recomandați?",
