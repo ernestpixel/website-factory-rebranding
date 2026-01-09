@@ -60,9 +60,10 @@ export default function DespreNoiPage() {
     },
     areaServed: "România",
     sameAs: [
-      "https://facebook.com/websitefactory",
-      "https://instagram.com/websitefactory",
-      "https://linkedin.com/company/websitefactory",
+      "https://www.facebook.com/profile.php?id=100087606842806",
+      "https://instagram.com/websitefactorytm",
+      "https://x.com/websitefactory_",
+      "https://www.linkedin.com/company/websitefactory-tm/",
     ],
   }
 

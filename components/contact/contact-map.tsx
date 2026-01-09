@@ -23,7 +23,7 @@ export function ContactMap() {
           </span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">Unde ne găsești</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Suntem localizați în Timișoara, dar lucrăm cu clienți din toată România și nu numai.
+            Suntem din în Timișoara, dar lucrăm cu clienți din toată România și nu numai.
           </p>
         </div>
 

@@ -5,13 +5,13 @@ export const siteConfig = {
   name: "Website Factory",
   url: "https://websitefactory.ro",
   description:
-    "Creare site-uri web profesionale în Timișoara. Web design SEO-first, performanță optimizată și conversii măsurabile.",
+    "Creare site web profesional în Timișoara. Web design și optimizare SEO, performanță și conversii măsurabile.",
   locale: "ro_RO",
   address: {
-    streetAddress: "Strada Exemplu 123",
+    streetAddress: "Piața Unirii 1",
     addressLocality: "Timișoara",
     addressRegion: "Timiș",
-    postalCode: "307200",
+    postalCode: "300085",
     addressCountry: "RO",
   },
   contact: {
@@ -39,7 +39,7 @@ export function generatePageMetadata({
   return {
     title,
     description,
-    keywords: [...keywords, "web design", "creare site", "Website Factory"],
+    keywords: [...keywords, "web design", "creare site", "Website Factory", "dezvoltare website"],
     alternates: {
       canonical: url,
     },
@@ -101,9 +101,10 @@ export function generateLocalBusinessSchema() {
     priceRange: "$$",
     openingHours: "Mo-Fr 09:00-18:00",
     sameAs: [
-      "https://facebook.com/websitefactory",
-      "https://instagram.com/websitefactory",
-      "https://linkedin.com/company/websitefactory",
+      "https://www.facebook.com/profile.php?id=100087606842806",
+      "https://instagram.com/websitefactorytm",
+      "https://x.com/websitefactory_",
+      "https://www.linkedin.com/company/websitefactory-tm/",
     ],
   }
 }

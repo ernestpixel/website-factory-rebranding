@@ -221,7 +221,7 @@ export function ContactForm() {
           </p>
 
           {/* Submit Button */}
-          <MagneticButton className="w-full sm:w-auto" strength={0.2}>
+          <MagneticButton className="w-full sm:w-auto" intensity={0.2} as="div">
             <button
               type="submit"
               disabled={isSubmitting}

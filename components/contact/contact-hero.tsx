@@ -61,8 +61,7 @@ export function ContactHero() {
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto text-pretty">
-            Ești pregătit să-ți duci afacerea la următorul nivel? Completează formularul și îți vom răspunde în maxim 24
-            de ore.
+            ESpune-ne ce vrei să construiești. Trimite detaliile și revenim rapid cu o propunere personalizată.
           </p>
 
           {/* Quick contact badges */}
