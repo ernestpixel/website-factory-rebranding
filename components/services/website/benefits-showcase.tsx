@@ -71,14 +71,32 @@ function AnimatedStat({ value, suffix, isVisible }: { value: number; suffix: str
 export function BenefitsShowcase() {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.2 })
   const [activeIndex, setActiveIndex] = useState(0)
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     if (!isVisible) return
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % benefits.length)
+      setProgress(0)
     }, 4000)
     return () => clearInterval(interval)
   }, [isVisible])
+
+  useEffect(() => {
+    if (!isVisible) return
+    const startTime = Date.now()
+    const duration = 4000
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime
+      const newProgress = Math.min(elapsed / duration, 1)
+      setProgress(newProgress)
+      if (newProgress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+    requestAnimationFrame(animate)
+  }, [activeIndex, isVisible])
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
@@ -127,51 +145,69 @@ export function BenefitsShowcase() {
             const Icon = benefit.icon
             const isActive = index === activeIndex
             return (
-              <div
-                key={benefit.label}
-                className={cn(
-                  "group relative p-6 lg:p-8 rounded-3xl border transition-all duration-500 cursor-default",
-                  isActive
-                    ? "bg-card border-brand/50 shadow-xl scale-[1.02]"
-                    : "bg-card/50 border-border hover:border-brand/30",
-                )}
-                onMouseEnter={() => setActiveIndex(index)}
-                style={{
-                  animation: isVisible ? `fadeInUp 0.6s ease-out ${index * 0.1}s forwards` : "none",
-                  opacity: isVisible ? undefined : 0,
-                }}
-              >
-                {/* Glow effect for active */}
+              <div key={benefit.label} className="relative">
                 {isActive && (
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand/5 to-transparent pointer-events-none" />
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 10 }}>
+                    <rect
+                      x="1"
+                      y="1"
+                      width="calc(100% - 2px)"
+                      height="calc(100% - 2px)"
+                      rx="24"
+                      ry="24"
+                      fill="none"
+                      stroke="url(#borderGradient)"
+                      strokeWidth="2"
+                      strokeDasharray="1000"
+                      strokeDashoffset={1000 - progress * 1000}
+                      className="transition-none"
+                    />
+                    <defs>
+                      <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="hsl(var(--brand))" />
+                        <stop offset="50%" stopColor="hsl(var(--glow-cyan))" />
+                        <stop offset="100%" stopColor="hsl(var(--glow-violet))" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
                 )}
 
                 <div
                   className={cn(
-                    "inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-4 transition-transform duration-300",
-                    benefit.bgColor,
-                    isActive && "scale-110",
+                    "group relative p-6 lg:p-8 rounded-3xl border transition-all duration-500 cursor-default h-full",
+                    isActive
+                      ? "bg-card border-transparent shadow-xl scale-[1.02]"
+                      : "bg-card/50 border-border hover:border-brand/30",
                   )}
+                  onMouseEnter={() => {
+                    setActiveIndex(index)
+                    setProgress(0)
+                  }}
+                  style={{
+                    animation: isVisible ? `fadeInUp 0.6s ease-out ${index * 0.1}s forwards` : "none",
+                    opacity: isVisible ? undefined : 0,
+                  }}
                 >
-                  <Icon className={cn("w-6 h-6", benefit.color)} />
-                </div>
+                  {isActive && (
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand/5 to-transparent pointer-events-none" />
+                  )}
 
-                <div className={cn("transition-colors", isActive ? benefit.color : "text-foreground")}>
-                  <AnimatedStat value={benefit.stat} suffix={benefit.suffix} isVisible={isVisible} />
-                </div>
-
-                <p className="mt-2 font-semibold text-foreground">{benefit.label}</p>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
-
-                {/* Progress indicator */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 rounded-b-3xl overflow-hidden">
                   <div
-                    className={cn("h-full transition-all duration-300", isActive ? "bg-brand" : "bg-transparent")}
-                    style={{
-                      width: isActive ? "100%" : "0%",
-                      transition: isActive ? "width 4s linear" : "width 0.3s ease",
-                    }}
-                  />
+                    className={cn(
+                      "inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-4 transition-transform duration-300",
+                      benefit.bgColor,
+                      isActive && "scale-110",
+                    )}
+                  >
+                    <Icon className={cn("w-6 h-6", benefit.color)} />
+                  </div>
+
+                  <div className={cn("transition-colors", isActive ? benefit.color : "text-foreground")}>
+                    <AnimatedStat value={benefit.stat} suffix={benefit.suffix} isVisible={isVisible} />
+                  </div>
+
+                  <p className="mt-2 font-semibold text-foreground">{benefit.label}</p>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
                 </div>
               </div>
             )

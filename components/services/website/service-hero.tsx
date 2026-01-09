@@ -69,8 +69,12 @@ export function ServiceHero() {
         />
       </div>
 
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none lg:hidden opacity-30">
+        <WebsiteBlob className="w-full h-full max-w-md" size="sm" />
+      </div>
+
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] h-[80%] hidden lg:flex items-center justify-center pointer-events-auto">
-        <WebsiteBlob className="w-full h-full" />
+        <WebsiteBlob className="w-full h-full" size="lg" />
       </div>
 
       {/* Content */}
@@ -118,8 +122,7 @@ export function ServiceHero() {
             rezultate măsurabile.
           </p>
 
-          {/* Animated Features Row */}
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 grid grid-cols-2 sm:flex sm:flex-wrap gap-2 sm:gap-3">
             {heroFeatures.map((feature, index) => {
               const Icon = feature.icon
               const isActive = index === activeFeature
@@ -127,28 +130,29 @@ export function ServiceHero() {
                 <div
                   key={feature.label}
                   className={cn(
-                    "flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-500 cursor-default",
+                    "flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border transition-all duration-500 cursor-default",
                     isActive
                       ? "bg-brand/10 border-brand/50 text-foreground scale-105"
                       : "bg-background/50 border-border/50 text-muted-foreground",
                   )}
                   onMouseEnter={() => setActiveFeature(index)}
                 >
-                  <Icon className={cn("w-4 h-4 transition-colors", isActive && "text-brand")} />
-                  <span className="text-sm font-medium">{feature.label}</span>
-                  {isActive && <Check className="w-4 h-4 text-green-500 animate-in fade-in duration-300" />}
+                  <Icon className={cn("w-4 h-4 transition-colors flex-shrink-0", isActive && "text-brand")} />
+                  <span className="text-xs sm:text-sm font-medium truncate">{feature.label}</span>
+                  {isActive && (
+                    <Check className="w-4 h-4 text-green-500 animate-in fade-in duration-300 hidden sm:block" />
+                  )}
                 </div>
               )
             })}
           </div>
 
-          {/* CTAs */}
-          <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-start gap-4">
             <MagneticButton
-              className="group relative overflow-hidden px-8 py-4 bg-brand text-brand-foreground rounded-full font-semibold text-base glow-brand hover:glow-intense transition-all duration-300"
+              className="group relative overflow-hidden px-8 py-4 bg-brand text-brand-foreground rounded-full font-semibold text-base glow-brand hover:glow-intense transition-all duration-300 w-full sm:w-auto text-center justify-center"
               onClick={() => (window.location.href = "/contact")}
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center justify-center gap-2">
                 Solicită ofertă gratuită
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </span>
@@ -157,7 +161,7 @@ export function ServiceHero() {
 
             <Link
               href="/portofoliu"
-              className="group flex items-center gap-3 px-8 py-4 rounded-full border border-border/50 hover:border-brand/50 glass-premium transition-all duration-300"
+              className="group flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-border/50 hover:border-brand/50 glass-premium transition-all duration-300"
             >
               <span className="flex items-center justify-center w-10 h-10 rounded-full bg-brand/10 group-hover:bg-brand/20 transition-colors">
                 <Play className="w-4 h-4 text-brand ml-0.5" />
@@ -166,8 +170,7 @@ export function ServiceHero() {
             </Link>
           </div>
 
-          {/* Trust Badges */}
-          <div className="mt-12 flex flex-wrap items-center gap-6">
+          <div className="mt-12 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-3 sm:gap-6">
             {trustBadges.map((badge, index) => (
               <div
                 key={badge}
@@ -177,7 +180,7 @@ export function ServiceHero() {
                   opacity: 0,
                 }}
               >
-                <Check className="w-4 h-4 text-green-500" />
+                <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
                 <span>{badge}</span>
               </div>
             ))}

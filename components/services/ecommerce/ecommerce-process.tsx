@@ -1,7 +1,18 @@
 "use client"
 
 import { useState } from "react"
-import { Search, PenTool, Code2, TestTube, Rocket, HeartHandshake, ChevronDown, Check } from "lucide-react"
+import {
+  Search,
+  Palette,
+  Database,
+  ShoppingBag,
+  CreditCard,
+  TestTube,
+  Rocket,
+  HeartHandshake,
+  ChevronDown,
+  Check,
+} from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { cn } from "@/lib/utils"
 
@@ -9,72 +20,94 @@ const processSteps = [
   {
     step: 1,
     icon: Search,
-    title: "Descoperire",
-    shortTitle: "Brief",
-    duration: "Ziua 1-2",
+    title: "Analiză & Strategie",
+    shortTitle: "Analiză",
+    duration: "Ziua 1-3",
     description:
-      "Începem cu o întâlnire de discovery unde înțelegem afacerea ta, obiectivele, publicul țintă și competiția. Analizăm ce funcționează și ce nu în industria ta.",
-    deliverables: ["Brief de proiect", "Analiza competiție", "Propunere soluție"],
+      "Analizăm piața, competiția și publicul țintă. Definim strategia de vânzare, categoriile de produse și fluxul ideal de checkout pentru maximizarea conversiilor.",
+    deliverables: ["Audit competiție", "Strategie pricing", "Arhitectura magazin"],
     color: "from-blue-500 to-cyan-500",
   },
   {
     step: 2,
-    icon: PenTool,
-    title: "Design & Prototip",
+    icon: Palette,
+    title: "Design UX/UI",
     shortTitle: "Design",
-    duration: "Ziua 3-7",
+    duration: "Ziua 4-10",
     description:
-      "Creăm wireframe-uri și mockup-uri interactive. Validăm fiecare decizie de design cu tine înainte de a trece la implementare. Revizuiri nelimitate până ești mulțumit.",
-    deliverables: ["Wireframes", "Design UI complet", "Prototip interactiv"],
+      "Creăm un design orientat pe conversie: homepage atractiv, pagini de produs optimizate, coș de cumpărături intuitiv și checkout simplificat pentru mobile.",
+    deliverables: ["Wireframes UX", "Design complet", "Prototip interactiv"],
     color: "from-violet-500 to-purple-500",
   },
   {
     step: 3,
-    icon: Code2,
-    title: "Dezvoltare",
-    shortTitle: "Code",
-    duration: "Ziua 8-14",
+    icon: Database,
+    title: "Setup Catalog",
+    shortTitle: "Catalog",
+    duration: "Ziua 11-15",
     description:
-      "Construim site-ul folosind cele mai noi tehnologii. Cod curat, performant, optimizat SEO din prima zi. Fiecare linie de cod este scrisă pentru viteză și scalabilitate.",
-    deliverables: ["Frontend responsive", "Integrare CMS", "Optimizare performanță"],
+      "Structurăm catalogul de produse, setăm categorii, filtre și atribute. Importăm produsele și optimizăm descrierile pentru SEO și conversie.",
+    deliverables: ["Structură categorii", "Import produse", "SEO produse"],
     color: "from-brand to-indigo-500",
   },
   {
     step: 4,
-    icon: TestTube,
-    title: "Testare & QA",
-    shortTitle: "Test",
-    duration: "Ziua 15-17",
+    icon: CreditCard,
+    title: "Plăți & Livrare",
+    shortTitle: "Integrări",
+    duration: "Ziua 16-20",
     description:
-      "Testăm riguros pe toate browserele și dispozitivele. Verificăm performanța, securitatea și funcționalitățile. Corectăm orice problemă înainte de lansare.",
-    deliverables: ["Raport testare", "Optimizări finale", "Checklist lansare"],
-    color: "from-amber-500 to-orange-500",
-  },
-  {
-    step: 5,
-    icon: Rocket,
-    title: "Lansare",
-    shortTitle: "Launch",
-    duration: "Ziua 18-20",
-    description:
-      "Configurăm hosting, domeniu și SSL. Lansăm site-ul live, setăm Google Analytics și Search Console. Te ghidăm prin toate setările importante.",
-    deliverables: ["Site live", "Analytics setup", "Training administrare"],
+      "Integrăm procesatorii de plăți (card, ramburs, rate), curierii (FanCourier, Sameday, DPD) și sistemele de facturare. Totul automatizat.",
+    deliverables: ["Gateway plăți", "Integrare curieri", "Facturare automată"],
     color: "from-green-500 to-emerald-500",
   },
   {
+    step: 5,
+    icon: ShoppingBag,
+    title: "Funcționalități Extra",
+    shortTitle: "Features",
+    duration: "Ziua 21-25",
+    description:
+      "Implementăm funcțiile de loializare: puncte de fidelitate, programe referral, wishlist smart, notificări stoc, subscripții și marketing automation.",
+    deliverables: ["Sistem loializare", "Marketing automation", "Notificări email"],
+    color: "from-amber-500 to-orange-500",
+  },
+  {
     step: 6,
+    icon: TestTube,
+    title: "Testare & QA",
+    shortTitle: "Test",
+    duration: "Ziua 26-28",
+    description:
+      "Testăm riguros fluxul complet de cumpărare pe toate dispozitivele. Verificăm plățile, livrările, email-urile automate și performanța.",
+    deliverables: ["Teste checkout", "Teste plăți", "Optimizare viteză"],
+    color: "from-rose-500 to-pink-500",
+  },
+  {
+    step: 7,
+    icon: Rocket,
+    title: "Lansare",
+    shortTitle: "Launch",
+    duration: "Ziua 29-30",
+    description:
+      "Lansăm magazinul live, configurăm Google Analytics eCommerce, setăm tracking conversii și te instruim cum să gestionezi comenzile zilnice.",
+    deliverables: ["Magazin live", "Analytics eCommerce", "Training complet"],
+    color: "from-cyan-500 to-teal-500",
+  },
+  {
+    step: 8,
     icon: HeartHandshake,
     title: "Suport & Creștere",
     shortTitle: "Suport",
     duration: "Ongoing",
     description:
-      "30 de zile suport gratuit post-lansare. Monitorizăm performanța, oferim recomandări de optimizare și suntem aici pentru orice întrebare sau ajustare.",
-    deliverables: ["Suport 30 zile", "Rapoarte performanță", "Consultanță SEO"],
-    color: "from-pink-500 to-rose-500",
+      "30 zile suport gratuit. Monitorizăm vânzările, rata de abandon coș, optimizăm conversiile și te ajutăm să scalezi afacerea.",
+    deliverables: ["Suport 30 zile", "Rapoarte vânzări", "Optimizări CRO"],
+    color: "from-brand-light to-brand",
   },
 ]
 
-export function InteractiveProcess() {
+export function EcommerceProcess() {
   const [activeStep, setActiveStep] = useState(0)
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 })
   const currentStep = processSteps[activeStep]
@@ -82,6 +115,10 @@ export function InteractiveProcess() {
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden bg-muted/30">
       <div className="absolute inset-0 grid-pattern opacity-30" />
+
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-brand/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 left-10 w-64 h-64 rounded-full bg-glow-cyan/10 blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div
@@ -95,13 +132,14 @@ export function InteractiveProcess() {
             Procesul Nostru
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold">
-            Cum creăm <span className="gradient-text">website-ul tău</span>
+            Cum construim <span className="gradient-text">magazinul tău online</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Un proces transparent, testat pe 150+ proiecte. Știi exact ce se întâmplă în fiecare etapă.
+            Un proces transparent de 30 de zile, de la concept la vânzări.
           </p>
         </div>
 
+        {/* Mobile Accordion */}
         <div className="lg:hidden space-y-3">
           {processSteps.map((step, index) => {
             const Icon = step.icon
@@ -116,9 +154,7 @@ export function InteractiveProcess() {
                   isActive ? "border-brand/50 bg-card shadow-lg shadow-brand/10" : "border-border/50 bg-card/50",
                 )}
               >
-                {/* Step Header - Always visible, clickable */}
                 <button onClick={() => setActiveStep(index)} className="w-full flex items-center gap-4 p-4 text-left">
-                  {/* Step number with icon */}
                   <div
                     className={cn(
                       "relative flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300",
@@ -132,7 +168,6 @@ export function InteractiveProcess() {
                     {isPast ? <Check className="w-5 h-5" /> : <Icon className="w-5 h-5" />}
                   </div>
 
-                  {/* Step info */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-medium text-muted-foreground">Pasul {step.step}</span>
@@ -149,7 +184,6 @@ export function InteractiveProcess() {
                     </h3>
                   </div>
 
-                  {/* Expand icon */}
                   <ChevronDown
                     className={cn(
                       "w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0",
@@ -158,7 +192,6 @@ export function InteractiveProcess() {
                   />
                 </button>
 
-                {/* Expandable content */}
                 <div
                   className={cn(
                     "grid transition-all duration-300 ease-in-out",
@@ -167,10 +200,7 @@ export function InteractiveProcess() {
                 >
                   <div className="overflow-hidden">
                     <div className="px-4 pb-4 pt-0 space-y-4">
-                      {/* Description */}
                       <p className="text-sm text-foreground/80 leading-relaxed">{step.description}</p>
-
-                      {/* Deliverables */}
                       <div className="space-y-2">
                         <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                           Ce primești:
@@ -199,18 +229,17 @@ export function InteractiveProcess() {
           })}
         </div>
 
+        {/* Desktop Timeline */}
         <div className="hidden lg:block max-w-6xl mx-auto">
           {/* Step Indicators */}
           <div className="relative mb-12">
-            {/* Progress line */}
             <div className="absolute top-6 left-0 right-0 h-0.5 bg-border">
               <div
-                className="h-full bg-gradient-to-r from-brand to-brand-light transition-all duration-500"
+                className="h-full bg-gradient-to-r from-brand to-glow-cyan transition-all duration-500"
                 style={{ width: `${(activeStep / (processSteps.length - 1)) * 100}%` }}
               />
             </div>
 
-            {/* Steps */}
             <div className="flex justify-between">
               {processSteps.map((step, index) => {
                 const Icon = step.icon
@@ -222,7 +251,7 @@ export function InteractiveProcess() {
                     key={step.step}
                     onClick={() => setActiveStep(index)}
                     className={cn(
-                      "flex flex-col items-center gap-3 transition-all duration-300",
+                      "flex flex-col items-center gap-2 transition-all duration-300",
                       isActive ? "scale-110" : "hover:scale-105",
                     )}
                   >
@@ -238,16 +267,15 @@ export function InteractiveProcess() {
                     >
                       {isPast ? <Check className="w-5 h-5" /> : <Icon className="w-5 h-5" />}
                     </div>
-                    <div className="text-center">
+                    <div className="text-center max-w-[80px]">
                       <p
                         className={cn(
-                          "text-sm font-semibold transition-colors",
+                          "text-xs font-semibold transition-colors leading-tight",
                           isActive ? "text-brand" : "text-muted-foreground",
                         )}
                       >
-                        {step.title}
+                        {step.shortTitle}
                       </p>
-                      <p className="text-xs text-muted-foreground">{step.duration}</p>
                     </div>
                   </button>
                 )
@@ -260,7 +288,6 @@ export function InteractiveProcess() {
             key={currentStep.step}
             className="grid lg:grid-cols-2 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500"
           >
-            {/* Info */}
             <div className="glass-premium rounded-3xl p-8 lg:p-10">
               <div className="flex items-center gap-4 mb-6">
                 <div
@@ -287,7 +314,6 @@ export function InteractiveProcess() {
               </div>
             </div>
 
-            {/* Deliverables */}
             <div className="space-y-4">
               <h4 className="font-heading text-lg font-semibold mb-6">Ce primești:</h4>
               {currentStep.deliverables.map((item, index) => (
