@@ -5,6 +5,7 @@ import { FeaturedWork } from "@/components/home/featured-work"
 import { AboutPreview } from "@/components/home/about-preview"
 import { Process } from "@/components/home/process"
 import { Testimonials } from "@/components/home/testimonials"
+import { Partners } from "@/components/home/partners"
 import { FAQ } from "@/components/home/faq"
 import { CTASection } from "@/components/home/cta-section"
 import { generateLocalBusinessSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/seo"
@@ -31,6 +32,7 @@ export default function HomePage() {
       <AboutPreview />
       <Process />
       <Testimonials />
+      <Partners />
       <FAQ />
       <CTASection />
     </>
