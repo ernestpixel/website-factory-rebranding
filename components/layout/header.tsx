@@ -28,7 +28,13 @@ export function Header() {
   const [isServicesOpen, setIsServicesOpen] = React.useState(false)
   const [isMobileServicesOpen, setIsMobileServicesOpen] = React.useState(false)
   const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
   const servicesRef = React.useRef<HTMLDivElement>(null)
+
+  // Prevent hydration mismatch by only using theme after mount
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +79,7 @@ export function Header() {
             <Link href="/" className="relative z-10 flex-shrink-0 group">
               <Image
                 src={
-                  resolvedTheme === "dark"
+                  mounted && resolvedTheme === "dark"
                     ? "/images/website-factory-logo-text-white.png"
                     : "/images/website-factory-logo-text-bright-blue.png"
                 }

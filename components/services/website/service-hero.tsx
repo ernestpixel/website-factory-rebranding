@@ -30,7 +30,7 @@ export function ServiceHero() {
   }, [])
 
   return (
-    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center overflow-hidden pb-24 md:pb-32">
       {/* Background Effects */}
       <div className="absolute inset-0 hero-gradient" />
       <div className="absolute inset-0 grid-pattern" />
@@ -189,9 +189,11 @@ export function ServiceHero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-xs text-muted-foreground tracking-widest uppercase">Descoperă mai mult</span>
-        <div className="w-px h-12 bg-gradient-to-b from-brand to-transparent" />
+      <div className="absolute bottom-6 sm:bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 pointer-events-none">
+        <span className="text-[10px] sm:text-xs text-muted-foreground tracking-widest uppercase bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full">
+          Descoperă mai mult
+        </span>
+        <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-brand to-transparent" />
       </div>
 
       <style jsx>{`

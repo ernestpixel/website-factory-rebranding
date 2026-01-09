@@ -18,7 +18,7 @@ export function FeaturedProjects() {
     activeFilter === "all" ? featuredProjects : featuredProjects.filter((p) => p.category === activeFilter)
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section className="relative pt-16 sm:pt-20 md:pt-24 pb-24 md:pb-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-muted/30" />
       <div className="absolute inset-0 grid-pattern opacity-50" />

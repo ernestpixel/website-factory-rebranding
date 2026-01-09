@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useTheme } from "@/components/theme-provider"
@@ -34,6 +35,12 @@ const footerLinks = {
 export function Footer() {
   const currentYear = new Date().getFullYear()
   const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  // Prevent hydration mismatch by only using theme after mount
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <footer className="relative overflow-hidden bg-card border-t border-border" role="contentinfo">
@@ -48,7 +55,7 @@ export function Footer() {
             <Link href="/" className="inline-block group">
               <Image
                 src={
-                  resolvedTheme === "dark"
+                  mounted && resolvedTheme === "dark"
                     ? "/images/website-factory-logo-text-white.png"
                     : "/images/website-factory-logo-text-bright-blue.png"
                 }

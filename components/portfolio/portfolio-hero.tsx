@@ -10,7 +10,7 @@ export function PortfolioHero() {
   const totalProjects = featuredProjects.length + simpleProjects.length
 
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24 pb-16">
+    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24 pb-24 md:pb-32">
       {/* Background Effects */}
       <div className="absolute inset-0 hero-gradient" />
       <div className="absolute inset-0 grid-pattern" />
@@ -96,9 +96,11 @@ export function PortfolioHero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-xs text-muted-foreground tracking-widest uppercase">Explorează proiectele</span>
-        <div className="w-px h-12 bg-gradient-to-b from-brand to-transparent" />
+      <div className="absolute bottom-6 sm:bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 pointer-events-none">
+        <span className="text-[10px] sm:text-xs text-muted-foreground tracking-widest uppercase bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full">
+          Explorează proiectele
+        </span>
+        <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-brand to-transparent" />
       </div>
 
       <style jsx>{`

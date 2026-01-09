@@ -37,7 +37,7 @@ export function CompanyStory() {
   const { ref: pointsRef, isVisible: pointsVisible } = useScrollReveal()
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="pt-16 sm:pt-20 md:pt-24 pb-24 lg:pb-32 relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand/5 to-transparent" />
 

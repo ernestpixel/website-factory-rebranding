@@ -77,7 +77,7 @@ export function WebsiteTypes() {
   const selectedType = websiteTypes.find((t) => t.id === activeType)!
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative pt-16 sm:pt-20 md:pt-24 pb-24 lg:pb-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
       <div className="absolute inset-0 grid-pattern opacity-50" />

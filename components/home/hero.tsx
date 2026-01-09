@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import Link from "next/link"
 import { ArrowRight, Play, Sparkles } from "lucide-react"
 import { MagneticButton } from "@/components/ui/magnetic-button"
@@ -12,6 +13,30 @@ import { cn } from "@/lib/utils"
 export function Hero() {
   const { ref: badgeRef, isVisible: badgeVisible } = useScrollReveal()
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal()
+  
+  // Generate stable random values for floating particles to prevent hydration mismatch
+  // Use deterministic values for SSR, then update with random values on client
+  const [floatingParticles, setFloatingParticles] = React.useState(() => {
+    // Deterministic values for SSR (prevents hydration mismatch)
+    return Array.from({ length: 6 }, (_, i) => ({
+      top: 15 + (i * 11.67) % 70,
+      left: 5 + (i * 6.67) % 40,
+      duration: 4 + (i * 0.5) % 3,
+      distance: 8 + (i * 1.67) % 10,
+    }))
+  })
+
+  React.useEffect(() => {
+    // Generate random values only on client after mount
+    setFloatingParticles(
+      Array.from({ length: 6 }, () => ({
+        top: 15 + Math.random() * 70,
+        left: 5 + Math.random() * 40,
+        duration: 4 + Math.random() * 3,
+        distance: 8 + Math.random() * 10,
+      }))
+    )
+  }, [])
 
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
@@ -46,7 +71,7 @@ export function Hero() {
 
       {/* Decorative floating particles - fewer on mobile */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block">
-        {[...Array(6)].map((_, i) => (
+        {floatingParticles.map((particle, i) => (
           <FloatingElement
             key={i}
             className={cn(
@@ -54,12 +79,12 @@ export function Hero() {
               i % 3 === 0 ? "bg-brand/60" : i % 3 === 1 ? "bg-glow-violet/60" : "bg-glow-cyan/40",
             )}
             style={{
-              top: `${15 + Math.random() * 70}%`,
-              left: `${5 + Math.random() * 40}%`,
+              top: `${particle.top}%`,
+              left: `${particle.left}%`,
             }}
             delay={i * 0.5}
-            duration={4 + Math.random() * 3}
-            distance={8 + Math.random() * 10}
+            duration={particle.duration}
+            distance={particle.distance}
           />
         ))}
       </div>
