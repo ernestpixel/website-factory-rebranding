@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Website Factory",
   },
   description:
-    "Creare site-uri web profesionale în Timișoara. Web design SEO-first, performanță optimizată și conversii măsurabile. Solicită ofertă gratuită!",
+    "De la idee la soluție digitală, creăm site-uri și magazine online în Timișoara: web design modern, viteză, SEO local și conversii.",
   keywords: [
     "creare site Timișoara",
     "web design Timișoara",
@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     "site-uri profesionale",
     "magazin online",
     "aplicații mobile",
+    "Firmă web design Timișoara",
   ],
   authors: [{ name: "Website Factory" }],
   creator: "Website Factory",
@@ -54,9 +55,9 @@ export const metadata: Metadata = {
     locale: "ro_RO",
     url: "https://websitefactory.ro",
     siteName: "Website Factory",
-    title: "Creare site Timișoara | Web design profesional | Website Factory",
+    title: "Creare site Timișoara | Web design Timișoara | Website Factory",
     description:
-      "Creare site-uri web profesionale în Timișoara. Web design SEO-first, performanță optimizată și conversii măsurabile.",
+      "De la idee la soluție digitală, creăm site-uri și magazine online în Timișoara: web design modern, viteză, SEO local și conversii.",
     images: [
       {
         url: "/og-image.jpg",
@@ -68,14 +69,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creare site Timișoara | Website Factory",
-    description: "Web design SEO-first, performanță optimizată și conversii măsurabile în Timișoara.",
+    title: "Creare site Timișoara | Web design Timișoara | Website Factory",
+    description: "De la idee la soluție digitală, creăm site-uri și magazine online în Timișoara: web design modern, viteză, SEO local și conversii.",
     images: ["/og-image.jpg"],
   },
   alternates: {
     canonical: "https://websitefactory.ro",
   },
-    generator: 'v0.app'
+  icons: {
+    icon: [
+      { url: "/website-factory-logo-bright-blue-svg.svg", type: "image/svg+xml" },
+      { url: "/website-factory-logo-bright-blue-svg.svg", type: "image/svg+xml", sizes: "any" },
+    ],
+    apple: [
+      { url: "/website-factory-logo-bright-blue-svg.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/website-factory-logo-bright-blue-svg.svg",
+  },
+  generator: 'v0.app'
 }
 
 export const viewport: Viewport = {

@@ -56,8 +56,8 @@ export function Footer() {
               <Image
                 src={
                   mounted && resolvedTheme === "dark"
-                    ? "/images/website-factory-logo-text-white.png"
-                    : "/images/website-factory-logo-text-bright-blue.png"
+                    ? "/logo-website-factory-horizontal-white.webp"
+                    : "/logo-website-factory-horizontal-webp.webp"
                 }
                 alt="Website Factory"
                 width={180}

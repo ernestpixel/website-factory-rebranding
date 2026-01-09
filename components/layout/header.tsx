@@ -80,13 +80,13 @@ export function Header() {
               <Image
                 src={
                   mounted && resolvedTheme === "dark"
-                    ? "/images/website-factory-logo-text-white.png"
-                    : "/images/website-factory-logo-text-bright-blue.png"
+                    ? "/logo-website-factory-horizontal-white.webp"
+                    : "/logo-website-factory-horizontal-webp.webp"
                 }
                 alt="Website Factory"
-                width={180}
-                height={40}
-                className="h-8 lg:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+                width={144}
+                height={32}
+                className="h-7 sm:h-8 w-auto transition-transform duration-300 group-hover:scale-105"
                 priority
               />
             </Link>
