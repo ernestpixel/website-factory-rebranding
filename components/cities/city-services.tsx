@@ -5,57 +5,85 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 
-const services = [
-  {
-    icon: Monitor,
-    title: "Website de Prezentare",
-    description: "Site-uri profesionale pentru afaceri din București care doresc o prezență online de impact.",
-    href: "/servicii/creare-website",
-    features: ["Design responsive", "SEO on-page", "CMS integrat"],
-  },
-  {
-    icon: ShoppingCart,
-    title: "Magazin Online",
-    description: "Soluții eCommerce performante pentru comercianți din capitală, cu integrări complete.",
-    href: "/servicii/magazin-online",
-    features: ["WooCommerce / Next.js", "Plăți online", "Integrare curier"],
-  },
-  {
-    icon: Smartphone,
-    title: "Aplicații Mobile",
-    description: "Aplicații native și cross-platform pentru startup-uri și companii din București.",
-    href: "/servicii/dezvoltare-aplicatie",
-    features: ["React Native", "iOS & Android", "Backend scalabil"],
-  },
-  {
-    icon: Search,
-    title: "SEO București",
-    description: "Optimizare pentru motoarele de căutare, targetat pe piața din București și România.",
-    href: "/contact",
-    features: ["Audit SEO", "Link building", "Content strategy"],
-  },
-  {
-    icon: Gauge,
-    title: "Optimizare Performanță",
-    description: "Site-uri rapide care convertesc vizitatorii în clienți și îmbunătățesc Core Web Vitals.",
-    href: "/contact",
-    features: ["Core Web Vitals", "Speed optimization", "CDN setup"],
-  },
-  {
-    icon: Palette,
-    title: "Branding & Identitate",
-    description: "Identitate vizuală completă pentru branduri care vor să iasă în evidență în București.",
-    href: "/contact",
-    features: ["Logo design", "Brand guidelines", "Materiale grafice"],
-  },
-]
-
 interface CityServicesProps {
   cityName: string
 }
 
+const getServices = (cityName: string) => {
+  const isBrasov = cityName === "Brașov"
+  const isBucharest = cityName === "București"
+  const isCluj = cityName.includes("Cluj")
+
+  return [
+    {
+      icon: Monitor,
+      title: "Website de Prezentare",
+      description: isBrasov
+        ? "Site-uri profesionale pentru pensiuni, restaurante și afaceri locale din Brașov și zona Poiană."
+        : isBucharest
+          ? "Site-uri profesionale pentru afaceri din București care doresc o prezență online de impact."
+          : "Site-uri profesionale pentru startup-uri și companii tech din Cluj-Napoca.",
+      href: "/servicii/creare-website",
+      features: ["Design responsive", "SEO on-page", "CMS integrat"],
+    },
+    {
+      icon: ShoppingCart,
+      title: "Magazin Online",
+      description: isBrasov
+        ? "Magazine online pentru produse tradiționale, suveniruri și comercianți locali din Brașov."
+        : isBucharest
+          ? "Soluții eCommerce performante pentru comercianți din capitală, cu integrări complete."
+          : "Platforme eCommerce scalabile pentru startup-uri și business-uri tech din Cluj.",
+      href: "/servicii/magazin-online",
+      features: ["WooCommerce / Next.js", "Plăți online", "Integrare curier"],
+    },
+    {
+      icon: Smartphone,
+      title: isBrasov ? "Site-uri pentru Turism" : "Aplicații Mobile",
+      description: isBrasov
+        ? "Site-uri specializate pentru pensiuni, hoteluri, agenții de turism și activități outdoor în Brașov."
+        : isBucharest
+          ? "Aplicații native și cross-platform pentru startup-uri și companii din București."
+          : "Aplicații web moderne și MVP-uri pentru startup-uri tech din ecosistemul Cluj.",
+      href: isBrasov ? "/contact" : "/servicii/dezvoltare-aplicatie",
+      features: isBrasov
+        ? ["Sistem rezervări", "Galerii foto", "Google Maps"]
+        : ["React Native", "iOS & Android", "Backend scalabil"],
+    },
+    {
+      icon: Search,
+      title: `SEO ${isBrasov ? "Brașov" : isBucharest ? "București" : "Cluj"}`,
+      description: isBrasov
+        ? "Optimizare SEO locală pentru Brașov - apari în top când turiștii caută cazare și servicii."
+        : isBucharest
+          ? "Optimizare pentru motoarele de căutare, targetat pe piața din București și România."
+          : "Optimizare SEO avansată pentru piața tech și business din Cluj-Napoca.",
+      href: "/contact",
+      features: ["Audit SEO", "Link building", "Content strategy"],
+    },
+    {
+      icon: Gauge,
+      title: "Optimizare Performanță",
+      description:
+        "Site-uri rapide care convertesc vizitatorii în clienți și îmbunătățesc Core Web Vitals.",
+      href: "/contact",
+      features: ["Core Web Vitals", "Speed optimization", "CDN setup"],
+    },
+    {
+      icon: Palette,
+      title: "Branding & Identitate",
+      description: isBrasov
+        ? "Identitate vizuală pentru pensiuni, restaurante și branduri locale din zona Brașov."
+        : `Identitate vizuală completă pentru branduri care vor să iasă în evidență în ${cityName}.`,
+      href: "/contact",
+      features: ["Logo design", "Brand guidelines", "Materiale grafice"],
+    },
+  ]
+}
+
 export function CityServices({ cityName }: CityServicesProps) {
   const { ref, isVisible } = useScrollReveal()
+  const services = getServices(cityName)
 
   return (
     <section className="py-20 sm:py-28 relative overflow-hidden">

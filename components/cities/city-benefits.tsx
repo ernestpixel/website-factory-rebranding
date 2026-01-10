@@ -5,41 +5,51 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { useCounter } from "@/hooks/use-counter"
 import { cn } from "@/lib/utils"
 
-const benefits = [
-  {
-    icon: TrendingUp,
-    stat: 340,
-    suffix: "%",
-    label: "Creștere trafic organic",
-    description: "Media clienților noștri din București în primele 6 luni",
-  },
-  {
-    icon: Clock,
-    stat: 1.2,
-    suffix: "s",
-    decimals: 1,
-    label: "Timp de încărcare",
-    description: "Site-uri ultra-rapide optimizate pentru Core Web Vitals",
-  },
-  {
-    icon: Shield,
-    stat: 99.9,
-    suffix: "%",
-    decimals: 1,
-    label: "Uptime garantat",
-    description: "Hosting premium pe servere din Europa",
-  },
-  {
-    icon: Users,
-    stat: 50,
-    suffix: "+",
-    label: "Clienți București",
-    description: "Afaceri din capitală care ne-au acordat încrederea",
-  },
-]
-
 interface CityBenefitsProps {
   cityName: string
+}
+
+const getBenefits = (cityName: string) => {
+  const isBrasov = cityName === "Brașov"
+  const isBucharest = cityName === "București"
+  const isCluj = cityName.includes("Cluj")
+
+  return [
+    {
+      icon: TrendingUp,
+      stat: 340,
+      suffix: "%",
+      label: "Creștere trafic organic",
+      description: `Media clienților noștri din ${cityName} în primele 6 luni`,
+    },
+    {
+      icon: Clock,
+      stat: 1.2,
+      suffix: "s",
+      decimals: 1,
+      label: "Timp de încărcare",
+      description: "Site-uri ultra-rapide optimizate pentru Core Web Vitals",
+    },
+    {
+      icon: Shield,
+      stat: 99.9,
+      suffix: "%",
+      decimals: 1,
+      label: "Uptime garantat",
+      description: "Hosting premium pe servere din Europa",
+    },
+    {
+      icon: Users,
+      stat: isBrasov ? 35 : isBucharest ? 50 : 40,
+      suffix: "+",
+      label: `Clienți ${cityName}`,
+      description: isBrasov
+        ? "Pensiuni, restaurante și afaceri locale din Brașov"
+        : isBucharest
+          ? "Afaceri din capitală care ne-au acordat încrederea"
+          : "Startup-uri și companii tech din Cluj",
+    },
+  ]
 }
 
 function AnimatedStat({ end, decimals = 0, suffix = "" }: { end: number; decimals?: number; suffix?: string }) {
@@ -55,6 +65,8 @@ function AnimatedStat({ end, decimals = 0, suffix = "" }: { end: number; decimal
 
 export function CityBenefits({ cityName }: CityBenefitsProps) {
   const { ref, isVisible } = useScrollReveal()
+  const benefits = getBenefits(cityName)
+  const isBrasov = cityName === "Brașov"
 
   return (
     <section className="py-20 sm:py-28 relative overflow-hidden bg-muted/30">
@@ -74,7 +86,9 @@ export function CityBenefits({ cityName }: CityBenefitsProps) {
             De ce să alegi <span className="gradient-text">Website Factory</span> în {cityName}?
           </h2>
           <p className="mt-4 text-muted-foreground text-base sm:text-lg">
-            Rezultate măsurabile și garanții concrete pentru afacerea ta din capitală.
+            {isBrasov
+              ? "Rezultate măsurabile pentru afacerea ta din inima Transilvaniei."
+              : "Rezultate măsurabile și garanții concrete pentru afacerea ta din capitală."}
           </p>
         </div>
 

@@ -8,7 +8,12 @@ import { BrasovBlob } from "@/components/cities/brasov-blob"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { cn } from "@/lib/utils"
 
-const trustBadges = ["SEO optimizat Brașov", "Design premium", "Suport dedicat"]
+const trustBadges = [
+  "SEO Local Brașov",
+  "Design Premium & Responsive",
+  "Livrare Rapidă",
+  "Suport Dedicat 24/7",
+]
 
 export function BrasovHero() {
   const { ref: contentRef, isVisible: contentVisible } = useScrollReveal()
@@ -81,9 +86,10 @@ export function BrasovHero() {
 
           {/* Subtitle */}
           <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl text-pretty">
-            Agenție de web design specializată în soluții digitale pentru{" "}
-            <strong className="text-foreground">afaceri din Brașov și zona Transilvaniei</strong>. Site-uri moderne
-            pentru turism, HoReCa, pensiuni și business local, optimizate SEO.
+            Agenție de <strong className="text-foreground">web design specializată</strong> în soluții digitale pentru{" "}
+            <strong className="text-foreground">afaceri din Brașov și zona Transilvaniei</strong>. Creăm{" "}
+            <strong className="text-foreground">site-uri web moderne</strong> pentru turism, HoReCa, pensiuni, restaurante și business local,{" "}
+            <strong className="text-foreground">optimizate SEO</strong> pentru top poziții Google Brașov.
           </p>
 
           {/* Stats */}

@@ -9,7 +9,7 @@ const milestones = [
   {
     year: "2023",
     title: "Începutul",
-    description: "Website Factory ia naștere în Timișoara. Primele 21 proiecte livrate.",
+    description: "Website Factory ia naștere în Timișoara. Primele 21 de proiecte livrate.",
     icon: Rocket,
   },
   {
@@ -23,14 +23,14 @@ const milestones = [
     title: "Inovație",
     description: (
       <>
-        Menținem proiectele, continuăm să livrăm proiecte de calitate. Lansăm{" "}
+        Menținem colaborările, continuăm să livrăm proiecte de calitate. Lansăm{" "}
         <Link
           href="https://unevent.ro"
           target="_blank"
           rel="noopener noreferrer"
           className="text-brand hover:underline font-medium"
         >
-          UN:EVENT - Platforma de evenimente
+          UN:EVENT - Platforma pentru evenimente
         </Link>
         .
       </>
