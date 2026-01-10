@@ -212,88 +212,155 @@ export const featuredProjects: FeaturedProject[] = [
   },
 ]
 
-export const simpleProjects: SimpleProject[] = [
-  {
-    id: "s1",
-    title: "Arpeggio Clinic",
-    client: "Arpeggio Clinic AB",
-    category: "website",
-    categoryLabel: "Website de prezentare",
-    image: "/images/website-de-prezentare-arpeggio-clinic.webp",
-    liveUrl: "https://arpeggioclinic.se",
-    year: "2024",
-  },
-  {
-    id: "s2",
-    title: "Dental Excellence",
-    client: "Dental Excellence SRL",
-    category: "website",
-    categoryLabel: "Website de prezentare",
-    image: "/dental-clinic-website-modern-blue-white-profession.jpg",
-    liveUrl: "https://dental-excellence.ro",
-    year: "2024",
-  },
-  {
-    id: "s3",
-    title: "Fashion Boutique Ella",
-    client: "Ella Fashion SRL",
-    category: "ecommerce",
-    categoryLabel: "Magazin online",
-    image: "/fashion-boutique-ecommerce-website-elegant-pink-go.jpg",
-    liveUrl: "https://ella-fashion.ro",
-    year: "2023",
-  },
-  {
-    id: "s4",
-    title: "Auto Service Pro",
-    client: "Auto Pro SRL",
-    category: "website",
-    categoryLabel: "Website de prezentare",
-    image: "/auto-service-garage-website-dark-red-professional-.jpg",
-    liveUrl: "https://autoservice-pro.ro",
-    year: "2023",
-  },
-  {
-    id: "s5",
-    title: "Coffee House Aroma",
-    client: "Aroma Coffee SRL",
-    category: "website",
-    categoryLabel: "Website de prezentare",
-    image: "/coffee-shop-website-warm-brown-cozy-mockup-devices.jpg",
-    liveUrl: "https://aroma-coffee.ro",
-    year: "2024",
-  },
-  {
-    id: "s6",
-    title: "Legal Partners",
-    client: "Legal Partners SRL",
-    category: "website",
-    categoryLabel: "Website de prezentare",
-    image: "/law-firm-website-professional-dark-blue-gold-mocku.jpg",
-    liveUrl: "https://legal-partners.ro",
-    year: "2023",
-  },
-  {
-    id: "s7",
-    title: "Pet Shop Happy Paws",
-    client: "Happy Paws SRL",
-    category: "ecommerce",
-    categoryLabel: "Magazin online",
-    image: "/pet-shop-ecommerce-website-colorful-friendly-mocku.jpg",
-    liveUrl: "https://happy-paws.ro",
-    year: "2024",
-  },
-  {
-    id: "s8",
-    title: "Yoga Studio Zen",
-    client: "Zen Yoga SRL",
-    category: "website",
-    categoryLabel: "Website de prezentare",
-    image: "/yoga-studio-website-calm-green-peaceful-mockup-dev.jpg",
-    liveUrl: "https://zen-yoga.ro",
-    year: "2023",
-  },
+// Helper function to parse filename and extract project info
+function parseProjectFromFilename(filename: string, index: number): SimpleProject {
+  const nameWithoutExt = filename.replace(/\.webp$/i, "")
+  
+  // Determine category based on filename prefix
+  let category: "website" | "ecommerce" | "app" | "custom" = "website"
+  let categoryLabel = "Website de prezentare"
+  
+  if (nameWithoutExt.startsWith("magazin-online") || nameWithoutExt.startsWith("proiect-magazin-online") || nameWithoutExt.startsWith("catalog-online-magazin")) {
+    category = "ecommerce"
+    categoryLabel = "Magazin online"
+  } else if (nameWithoutExt.startsWith("platforma-online")) {
+    category = "custom"
+    categoryLabel = "Platformă custom"
+  } else if (nameWithoutExt.startsWith("website-stiri-blog")) {
+    category = "website"
+    categoryLabel = "Website știri & blog"
+  } else if (nameWithoutExt.startsWith("website-recrutare")) {
+    category = "website"
+    categoryLabel = "Website recrutare"
+  } else if (nameWithoutExt.startsWith("website-auto")) {
+    category = "website"
+    categoryLabel = "Website auto"
+  } else if (nameWithoutExt.startsWith("website-asociatie-donatii")) {
+    category = "website"
+    categoryLabel = "Website asociație"
+  }
+  
+  // Extract title and client from filename
+  let title = nameWithoutExt
+    .replace(/^(website-de-prezentare|magazin-online|proiect-magazin-online|platforma-online|website-stiri-blog|website-recrutare|website-auto|website-asociatie-donatii|catalog-online-magazin|proiect-website-prezentare|web-design)-?(timisoara-?)?/i, "")
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (l) => l.toUpperCase())
+  
+  // Clean up title
+  title = title
+    .replace(/\s+/g, " ")
+    .trim()
+  
+  // Extract client name (usually the main part after prefix)
+  const clientParts = nameWithoutExt
+    .replace(/^(website-de-prezentare|magazin-online|proiect-magazin-online|platforma-online|website-stiri-blog|website-recrutare|website-auto|website-asociatie-donatii|catalog-online-magazin|proiect-website-prezentare|web-design)-?(timisoara-?)?/i, "")
+    .split("-")
+    .filter(p => p && !p.match(/^(timisoara|webp)$/i))
+  
+  let client = clientParts
+    .slice(0, 3)
+    .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+    .join(" ")
+  
+  if (!client || client.length < 2) {
+    client = title
+  }
+  
+  // Add SRL if it looks like a company name
+  if (!client.match(/\b(SRL|AB|SA|PFA)\b/i)) {
+    client = client + " SRL"
+  }
+  
+  return {
+    id: `s${index + 1}`,
+    title,
+    client,
+    category,
+    categoryLabel,
+    image: `/projects/${filename}`,
+    liveUrl: "#", // To be filled by user
+    year: "2024", // To be adjusted by user
+  }
+}
+
+// Generate projects from all files in /public/projects
+const projectFiles = [
+  "website-de-prezentare-timisoara-bradluc_curatenie.webp",
+  "proiect-website-prezentare-thermo-solar-energy.webp",
+  "magazin-online-timisoara-DPK.webp",
+  "website-de-prezentare-revelio-medical.webp",
+  "website-stiri-blog-NN News Media.webp",
+  "proiect-website-prezentare-afterschool-dumbravita-hobby-art.webp",
+  "magazin-online-timisoara-Pinnochio.webp",
+  "magazin-online-Scar.webp",
+  "magazin-online-timisoara-Revelio.webp",
+  "website-de-prezentare-timisoara-Proval.webp",
+  "website-de-prezentare-timisoara-Luxury Cleaning.webp",
+  "magazin-online-Rigolabeton.webp",
+  "website-de-prezentare-dezzign.webp",
+  "magazin-online-timisoara-Frentzy.webp",
+  "website-de-prezentare-Merpano.webp",
+  "magazin-online-timisoara-bradluc.webp",
+  "website-de-prezentare-timisoara-Hobby Art.webp",
+  "website-de-prezentare-TheRadar.webp",
+  "magazin-online-timisoara-Ornella Gallery.webp",
+  "website-de-prezentare-Youplus.webp",
+  "website-de-prezentare-ATP.webp",
+  "website-stiri-blog-timisoara-News Dealer.webp",
+  "website-de-prezentare-Best Tim Travel.webp",
+  "luxury-cleaning.webp",
+  "website-recrutare-AZ-jobs.webp",
+  "website-de-prezentare-timisoara-e-Drones.webp",
+  "website-de-prezentare-Revelio.webp",
+  "magazin-online-timisoara-Ornella.webp",
+  "website-de-prezentare-Maravo.webp",
+  "website-de-prezentare-timisoara-NAGY EVOLUTION CONSTRUCT.webp",
+  "website-de-prezentare-timisoara-Thermo_Solar.webp",
+  "magazin-online-timisoara-Natalie.webp",
+  "website-de-prezentare-timisoara-curatenie-Horvel.webp",
+  "website-de-prezentare-rdautomatim.webp",
+  "magazin-online-timisoara-Pheonix.webp",
+  "website-de-prezentare-radiotron.webp",
+  "proiect-magazin-online-blue-phoenix.webp",
+  "website-auto-okauto.webp",
+  "website-de-prezentare-terapie-energetica.webp",
+  "website-de-prezentare-timisoara-Evoratest.webp",
+  "website-asociatie-donatii-Painea pe ape.webp",
+  "magazin-online-ExtensioMob.webp",
+  "website-de-prezentare-bimtim.webp",
+  "magazin-online-Sotherm.webp",
+  "magazin-online-PVsystems.webp",
+  "website-de-prezentare-AC green.webp",
+  "website-de-prezentare-mobileSpa.webp",
+  "website-de-prezentare-si-calculator-pret-proval-just.webp",
+  "website-de-prezentare-timisoara-avocat-Jurjut.webp",
+  "proiect-magazin-online-pinocchio-timisoara.webp",
+  "website-de-prezentare-Cika.webp",
+  "website-de-prezentare-avocat-jurjut-mart.webp",
+  "magazin-online-timisoara-Revelio marketplace.webp",
+  "magazin-online-timisoara-Gloria.webp",
+  "web-design-timisoara-atp-apitherapie.webp",
+  "magazin-online-Ceramiqa.webp",
+  "website-de-prezentare-vici-evolution.webp",
+  "website-de-prezentare-ong-ame-de-vie.webp",
+  "website-de-prezentare-move-auto.webp",
+  "website-de-prezentare-lami-ing.webp",
+  "website-de-prezentare-infiintare-srl.webp",
+  "website-de-prezentare-geonordica.webp",
+  "website-de-prezentare-avocat-hinda.webp",
+  "website-de-prezentare-artimm-digital.webp",
+  "website-de-prezentare-arpeggio-clinic.webp",
+  "platforma-online-unevent.webp",
+  "platforma-online-extrasCF-documentrapid.webp",
+  "catalog-online-magazin-displayer.webp",
+  "magazin-online-zaniverse.webp",
+  "magazin-online-sotherm-italia.webp",
+  "magazin-online-the-permanent.webp",
 ]
+
+export const simpleProjects: SimpleProject[] = projectFiles.map((filename, index) =>
+  parseProjectFromFilename(filename, index)
+)
 
 export const categoryFilters = [
   { value: "all", label: "Toate proiectele" },
