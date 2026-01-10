@@ -16,6 +16,19 @@ export function ClujBlob({ className, size = "lg" }: ClujBlobProps) {
   const [isHovering, setIsHovering] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const animationRef = useRef<number>()
+  const [particles, setParticles] = useState<Array<{ top: number; left: number; duration: number }>>([])
+
+  // Initialize particles on client-side only to prevent hydration errors
+  useEffect(() => {
+    const particleCount = size === "sm" ? 5 : 10
+    setParticles(
+      Array.from({ length: particleCount }, () => ({
+        top: 10 + Math.random() * 80,
+        left: 5 + Math.random() * 90,
+        duration: 4 + Math.random() * 5,
+      })),
+    )
+  }, [size])
 
   const sizeConfig = {
     sm: { imageSize: 200, showDetails: false },
@@ -30,8 +43,8 @@ export function ClujBlob({ className, size = "lg" }: ClujBlobProps) {
 
     const animate = () => {
       setMousePos((prev) => ({
-        x: lerp(prev.x, targetPos.x, 0.06),
-        y: lerp(prev.y, targetPos.y, 0.06),
+        x: lerp(prev.x, targetPos.x, 0.15),
+        y: lerp(prev.y, targetPos.y, 0.15),
       }))
       animationRef.current = requestAnimationFrame(animate)
     }
@@ -333,7 +346,7 @@ export function ClujBlob({ className, size = "lg" }: ClujBlobProps) {
 
       {/* Floating particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(size === "sm" ? 5 : 10)].map((_, i) => (
+        {particles.map((particle, i) => (
           <div
             key={i}
             className={cn(
@@ -347,10 +360,10 @@ export function ClujBlob({ className, size = "lg" }: ClujBlobProps) {
                     : "bg-rose-400/50 w-1 h-1",
             )}
             style={{
-              top: `${10 + Math.random() * 80}%`,
-              left: `${5 + Math.random() * 90}%`,
+              top: `${particle.top}%`,
+              left: `${particle.left}%`,
               animationName: "float",
-              animationDuration: `${4 + Math.random() * 5}s`,
+              animationDuration: `${particle.duration}s`,
               animationTimingFunction: "ease-in-out",
               animationIterationCount: "infinite",
               animationDelay: `${i * 0.4}s`,
@@ -365,8 +378,11 @@ export function ClujBlob({ className, size = "lg" }: ClujBlobProps) {
           to { transform: rotate(360deg); }
         }
         @keyframes float {
-          0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
-          50% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+          0% { transform: translate(0px, 0px) scale(1); opacity: 0.6; }
+          25% { transform: translate(-12px, -18px) scale(1.15); opacity: 0.9; }
+          50% { transform: translate(18px, -22px) scale(0.85); opacity: 1; }
+          75% { transform: translate(10px, -12px) scale(1.08); opacity: 0.75; }
+          100% { transform: translate(0px, 0px) scale(1); opacity: 0.6; }
         }
       `}</style>
     </div>

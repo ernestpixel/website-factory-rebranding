@@ -16,6 +16,19 @@ export function BucharestBlob({ className, size = "lg" }: BucharestBlobProps) {
   const [isHovering, setIsHovering] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const animationRef = useRef<number>()
+  const [particles, setParticles] = useState<Array<{ top: number; left: number; duration: number }>>([])
+
+  // Initialize particles on client-side only to prevent hydration errors
+  useEffect(() => {
+    const particleCount = size === "sm" ? 5 : 10
+    setParticles(
+      Array.from({ length: particleCount }, () => ({
+        top: 10 + Math.random() * 80,
+        left: 5 + Math.random() * 90,
+        duration: 4 + Math.random() * 5,
+      })),
+    )
+  }, [size])
 
   // Size configurations
   const sizeConfig = {
@@ -42,8 +55,8 @@ export function BucharestBlob({ className, size = "lg" }: BucharestBlobProps) {
 
     const animate = () => {
       setMousePos((prev) => ({
-        x: lerp(prev.x, targetPos.x, 0.06),
-        y: lerp(prev.y, targetPos.y, 0.06),
+        x: lerp(prev.x, targetPos.x, 0.15),
+        y: lerp(prev.y, targetPos.y, 0.15),
       }))
       animationRef.current = requestAnimationFrame(animate)
     }
@@ -362,7 +375,7 @@ export function BucharestBlob({ className, size = "lg" }: BucharestBlobProps) {
 
       {/* Floating particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(size === "sm" ? 5 : 10)].map((_, i) => (
+        {particles.map((particle, i) => (
           <div
             key={i}
             className={cn(
@@ -376,10 +389,10 @@ export function BucharestBlob({ className, size = "lg" }: BucharestBlobProps) {
                     : "bg-yellow-400/50 w-1 h-1",
             )}
             style={{
-              top: `${10 + Math.random() * 80}%`,
-              left: `${5 + Math.random() * 90}%`,
+              top: `${particle.top}%`,
+              left: `${particle.left}%`,
               animationName: "float",
-              animationDuration: `${4 + Math.random() * 5}s`,
+              animationDuration: `${particle.duration}s`,
               animationTimingFunction: "ease-in-out",
               animationIterationCount: "infinite",
               animationDelay: `${i * 0.4}s`,
@@ -394,8 +407,11 @@ export function BucharestBlob({ className, size = "lg" }: BucharestBlobProps) {
           to { transform: rotate(360deg); }
         }
         @keyframes float {
-          0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
-          50% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+          0% { transform: translate(0px, 0px) scale(1); opacity: 0.6; }
+          25% { transform: translate(15px, -15px) scale(1.1); opacity: 0.8; }
+          50% { transform: translate(-10px, -25px) scale(0.9); opacity: 1; }
+          75% { transform: translate(-15px, -10px) scale(1.05); opacity: 0.7; }
+          100% { transform: translate(0px, 0px) scale(1); opacity: 0.6; }
         }
       `}</style>
     </div>

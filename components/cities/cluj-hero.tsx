@@ -8,7 +8,12 @@ import { ClujBlob } from "@/components/cities/cluj-blob"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { cn } from "@/lib/utils"
 
-const trustBadges = ["SEO optimizat Cluj", "Tehnologii moderne", "Suport dedicat"]
+const trustBadges = [
+  "SEO Local Cluj",
+  "Stack Modern (Next.js, React)",
+  "MVP Rapid pentru Startup-uri",
+  "Suport Dedicat 24/7",
+]
 
 export function ClujHero() {
   const { ref: contentRef, isVisible: contentVisible } = useScrollReveal()
@@ -81,9 +86,10 @@ export function ClujHero() {
 
           {/* Subtitle */}
           <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl text-pretty">
-            Agenție de web design specializată în soluții digitale pentru{" "}
-            <strong className="text-foreground">startup-uri și companii tech din Cluj-Napoca</strong>. Site-uri moderne,
-            performante și optimizate SEO pentru "Silicon Valley"-ul României.
+            Agenție de <strong className="text-foreground">web design specializată</strong> în soluții digitale pentru{" "}
+            <strong className="text-foreground">startup-uri și companii tech din Cluj-Napoca</strong>. Creăm{" "}
+            <strong className="text-foreground">aplicații web moderne</strong>, MVP-uri rapide și platforme scalabile,{" "}
+            <strong className="text-foreground">optimizate SEO</strong> pentru top poziții Google Cluj.
           </p>
 
           {/* Stats */}

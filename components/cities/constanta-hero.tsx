@@ -8,7 +8,12 @@ import { ConstantaBlob } from "@/components/cities/constanta-blob"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { cn } from "@/lib/utils"
 
-const trustBadges = ["SEO optimizat Constanța", "Design premium", "Suport dedicat"]
+const trustBadges = [
+  "SEO Local Constanța & Mamaia",
+  "Rezervări Online Integrate",
+  "Design Premium & Responsive",
+  "Suport Dedicat 24/7",
+]
 
 export function ConstantaHero() {
   const { ref: contentRef, isVisible: contentVisible } = useScrollReveal()
@@ -81,9 +86,11 @@ export function ConstantaHero() {
 
           {/* Subtitle */}
           <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl text-pretty">
-            Agenție de web design specializată în soluții digitale pentru{" "}
-            <strong className="text-foreground">afaceri din Constanța și litoralul românesc</strong>. Site-uri moderne
-            pentru turism, HoReCa, transport maritim și servicii locale.
+            Agenție de <strong className="text-foreground">web design specializată</strong> în soluții digitale pentru{" "}
+            <strong className="text-foreground">afaceri din Constanța și litoralul românesc</strong>. Creăm{" "}
+            <strong className="text-foreground">site-uri moderne</strong> pentru hoteluri, pensiuni, restaurante,{" "}
+            <strong className="text-foreground">cu sisteme de rezervări online</strong> și{" "}
+            <strong className="text-foreground">optimizare SEO</strong> pentru top poziții Google litoral.
           </p>
 
           {/* Stats */}
