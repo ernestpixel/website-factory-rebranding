@@ -9,29 +9,29 @@ import { cn } from "@/lib/utils"
 const testimonials = [
   {
     id: 1,
-    name: "Alexandru Popescu",
-    role: "CEO, TechStart SRL",
+    name: "Cordin Ștefănescu",
+    role: "Administrator, Ornella Design",
     content:
-      "Website Factory ne-a transformat complet prezența online. Site-ul nou a generat de 3 ori mai multe lead-uri în prima lună.",
-    avatar: "/professional-businessman-portrait-confident.jpg",
+      "Oameni faini, au înțeles rapid ce ne dorim și ne-au ajutat imediat. Echipa a fost super ok și a găsit soluții rapid la orice problemă. Recomandăm cu drag!",
+    avatar: "/professional-man-suit-corporate.jpg",
     rating: 5,
   },
   {
     id: 2,
-    name: "Maria Ionescu",
-    role: "Fondator, Boutique Elena",
+    name: "Raluca Brăgarea",
+    role: "fondator The Radar – boutique consultancy",
     content:
-      "Magazinul online creat de ei a depășit toate așteptările. Vânzările au crescut cu 200% și clienții adoră experiența de cumpărare.",
-    avatar: "/professional-businesswoman-portrait-elegant.jpg",
+      "Colaborarea cu Website Factory a fost una extrem de fluentă, chiar dacă am lucrat 100% remote. Comunicarea a fost clară, structurată și eficientă de la început până la livrarea finală. Echipa a integrat rapid feedback-ul meu privind specificul unui website de portofoliu – cu elemente atipice, prin comparație cu un site comercial – inclusiv utilizarea de elemente video frecvent întâlnite pe piețele internaționale, dar mai puțin uzuale în România. Suportul post-livrare a fost la fel de eficient și prompt, motiv pentru care am planificat deja un upgrade al site-ului, pe care îl voi realiza tot împreună cu Website Factory.",
+    avatar: "/professional-businessman-portrait-confident.jpg",
     rating: 5,
   },
   {
     id: 3,
-    name: "Dan Gheorghe",
-    role: "Director Marketing, HealthPlus",
+    name: "Nicolae Chirteș",
+    role: "Co-fondator, artimm.digital",
     content:
-      "Profesionalism de top! Au înțeles exact ce ne trebuie și au livrat un site care ne-a poziționat pe primul loc în Google pentru termenii cheie.",
-    avatar: "/professional-man-suit-corporate.jpg",
+      "Am lucrat cu Website Factory la realizarea website-ului nostru și, per total, a fost o experiență de succes. Au înțeles ce ne dorim, au venit cu soluții clare și au livrat un site modern, curat și ușor de folosit. Mi-a plăcut că au fost deschiși la feedback și am reusit sa oglindim intr-o forma autentica viziunea noastra de business.  Dacă ai nevoie de o echipă serioasă pentru web design și dezvoltare, Website Factory este alegerea potrivita.",
+    avatar: "/professional-businesswoman-portrait-elegant.jpg",
     rating: 5,
   },
 ]
