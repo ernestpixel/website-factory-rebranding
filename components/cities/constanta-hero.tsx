@@ -11,8 +11,7 @@ import { cn } from "@/lib/utils"
 const trustBadges = [
   "SEO Local Constanța & Mamaia",
   "Rezervări Online Integrate",
-  "Design Premium & Responsive",
-  "Suport Dedicat 24/7",
+  "Design Premium",
 ]
 
 export function ConstantaHero() {

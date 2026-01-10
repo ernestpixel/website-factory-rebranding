@@ -23,7 +23,7 @@ const getServices = (cityName: string) => {
       description: isBrasov
         ? "Site-uri profesionale pentru pensiuni, restaurante și afaceri locale din Brașov și zona Poiană."
         : isBucharest
-          ? "Site-uri profesionale pentru afaceri din București care doresc o prezență online de impact."
+          ? "Site-uri profesionale pentru afaceri din București care doresc o prezență online puternică."
           : isCluj
             ? "Site-uri profesionale pentru startup-uri și companii tech din Cluj-Napoca."
             : isConstanta
@@ -49,7 +49,7 @@ const getServices = (cityName: string) => {
     },
     {
       icon: Smartphone,
-      title: isBrasov || isConstanta ? "Site-uri pentru Turism" : isIasi ? "Site-uri Medicale" : "Aplicații Mobile",
+      title: "Soluții Web & Mobile Specializate",
       description: isBrasov
         ? "Site-uri specializate pentru pensiuni, hoteluri, agenții de turism și activități outdoor în Brașov."
         : isBucharest

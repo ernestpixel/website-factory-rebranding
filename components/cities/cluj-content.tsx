@@ -25,14 +25,14 @@ export function ClujContent() {
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <div className="max-w-4xl mb-12">
               <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                De ce ai nevoie de un site web sau aplicație pentru startup-ul tău din Cluj-Napoca?
+                Website Factory – alegerea potrivită pentru proiecte digitale serioase în Cluj-Napoca?
               </h2>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
                 În 2026, <strong className="text-foreground">Cluj-Napoca</strong> este recunoscut ca{" "}
                 <strong className="text-foreground">"Silicon Valley-ul României"</strong>, cu cel mai dinamic
                 ecosistem tech din țară. Cu peste 150,000 de profesioniști IT, sute de startup-uri și companii tech
-                globale (Amazon, Emag, Betfair, Bosch), competiția pentru talente și clienți este intensă. Un{" "}
+                globale, competiția pentru talente și clienți este intensă. Un{" "}
                 <strong className="text-foreground">site web modern sau aplicație web</strong> te ajută să te
                 diferențiezi, să atragi investitori, să validezi rapid ideea pe piață și să scalezi eficient.
               </p>

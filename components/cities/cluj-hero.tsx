@@ -12,7 +12,6 @@ const trustBadges = [
   "SEO Local Cluj",
   "Stack Modern (Next.js, React)",
   "MVP Rapid pentru Startup-uri",
-  "Suport Dedicat 24/7",
 ]
 
 export function ClujHero() {

@@ -121,7 +121,7 @@ export function Hero() {
               afacerea ta.
               {/* Decorative underline */}
               <svg
-                className="w-full h-2 sm:h-3 mt-1"
+                className="w-full h-1 sm:h-2 md:h-3 mt-1"
                 viewBox="0 0 100 8"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -223,8 +223,7 @@ export function Hero() {
           opacity: 0,
         }}
       >
-        <span className="inline-block w-6 h-6 rounded-full border border-muted-foreground/30 animate-pulse" />
-        <span>Atinge sfera</span>
+
       </div>
 
       {/* Scroll indicator */}

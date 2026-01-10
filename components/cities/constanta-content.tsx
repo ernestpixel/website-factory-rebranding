@@ -169,12 +169,11 @@ export function ConstantaContent() {
 
             <div className="max-w-4xl mb-8 mt-12">
               <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-4">
-                De ce să alegi Website Factory pentru hotelul tău din Constanța?
+                Website Factory – alegerea potrivită pentru proiecte digitale serioase în Constanța?
               </h3>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Cu peste <strong className="text-foreground">40 de proiecte finalizate</strong> pentru afaceri de pe
-                litoralul românesc, înțelegem perfect dinamica turismului sezonier și cerințele industriei HoReCa.
+                Cu peste <strong className="text-foreground">150 de proiecte finalizate</strong> pentru clienții noștri, înțelegem perfect dinamica turismului sezonier și cerințele industriei HoReCa.
                 Oferim: <strong className="text-foreground">design modern și responsive</strong> optimizat pentru
                 mobile (80% din rezervări), <strong className="text-foreground">sisteme complete de rezervări</strong>{" "}
                 cu calendar și plăți online, <strong className="text-foreground">optimizare SEO sezonieră</strong>{" "}

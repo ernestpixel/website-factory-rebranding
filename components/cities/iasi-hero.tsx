@@ -9,10 +9,9 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { cn } from "@/lib/utils"
 
 const trustBadges = [
-  "SEO Local Iași & Moldova",
-  "Design Premium & Responsive",
+  "SEO Local Iași",
+  "Design Premium",
   "Livrare Rapidă",
-  "Suport Dedicat 24/7",
 ]
 
 export function IasiHero() {
@@ -108,7 +107,7 @@ export function IasiHero() {
               <div className="text-xs sm:text-sm text-muted-foreground">SEO - first approach</div>
             </div>
           </div>
-          
+
           {/* CTAs */}
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4">
             <MagneticButton

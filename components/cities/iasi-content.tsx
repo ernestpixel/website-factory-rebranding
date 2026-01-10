@@ -169,12 +169,11 @@ export function IasiContent() {
 
             <div className="max-w-4xl mb-8 mt-12">
               <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-4">
-                De ce să alegi Website Factory pentru proiectul tău din Iași?
+                Website Factory – alegerea potrivită pentru proiecte digitale serioase în Iași?
               </h3>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Cu peste <strong className="text-foreground">35 de proiecte finalizate</strong> pentru clienți din
-                Iași și regiunea Moldova, înțelegem perfect dinamica pieței locale și cerințele specifice. Oferim:{" "}
+                Cu peste <strong className="text-foreground">150 de proiecte finalizate</strong> pentru clienții noștri, înțelegem perfect dinamica pieței locale și cerințele specifice. Oferim:{" "}
                 <strong className="text-foreground">design modern la standarde europene</strong>,{" "}
                 <strong className="text-foreground">optimizare SEO avansată</strong> pentru piața competitivă din
                 Iași, integrări complete (programări medicale, rezervări, plăți online),{" "}

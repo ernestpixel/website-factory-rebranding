@@ -81,7 +81,7 @@ export function BrasovContent() {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Site-uri de Prezentare</h4>
                   <p className="text-sm text-muted-foreground">
-                    Perfect pentru firme mici, freelanceri și profesioniști din Brașov
+                    Perfect pentru IMM, freelanceri și profesioniști din Brașov
                   </p>
                 </div>
               </div>
@@ -162,12 +162,11 @@ export function BrasovContent() {
 
             <div className="max-w-4xl mb-8 mt-12">
               <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-4">
-                De ce să alegi Website Factory pentru proiectul tău din Brașov?
+                Website Factory – alegerea potrivită pentru proiecte digitale serioase din Brașov
               </h3>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Cu peste <strong className="text-foreground">35 de proiecte finalizate</strong> pentru clienți din Brașov și
-                zona Transilvaniei, știm exact ce funcționează pe piața locală. Oferim:{" "}
+                Cu peste <strong className="text-foreground">150 de proiecte finalizate</strong> pentru clienții noștrii, știm exact ce funcționează pe piața locală. Oferim:{" "}
                 <strong className="text-foreground">design modern și responsive</strong>,{" "}
                 <strong className="text-foreground">optimizare SEO avansată</strong>, integrări complete (rezervări, plăți,
                 hărți), <strong className="text-foreground">livrare rapidă</strong> (1-8 săptămâni), prețuri competitive și

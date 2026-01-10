@@ -30,10 +30,10 @@ export function BucharestContent() {
 
               <p className="text-muted-foreground leading-relaxed mb-6">
                 În 2026, <strong className="text-foreground">prezența online</strong> este esențială pentru
-                afacerile din <strong className="text-foreground">București</strong>, capitala și cel mai mare hub
-                economic al României. Cu peste 2 milioane de locuitori și mii de companii active, competiția este
-                intensă. Un <strong className="text-foreground">site web optimizat SEO</strong> te ajută să te
-                diferențiezi, să fii găsit de clienții potențiali pe <strong className="text-foreground">Google</strong>{" "}
+                afaceri, mail ales în <strong className="text-foreground">București</strong>, capitala și cel mai mare hub
+                economic al României. Competiția fiind intensă,
+                un <strong className="text-foreground">site web optimizat SEO</strong> te ajută să te
+                diferențiezi, să fii găsit de clienții potențiali pe <strong className="text-foreground">Google</strong>{" "} și <strong className="text-foreground">AI Chatbots</strong>
                 și să generezi lead-uri calificate pentru afacerea ta.
               </p>
             </div>
@@ -47,7 +47,7 @@ export function BucharestContent() {
                 <h3 className="font-heading text-lg font-bold text-foreground mb-2">Corporate & Business</h3>
                 <p className="text-sm text-muted-foreground">
                   Site-uri pentru <strong>companii din București</strong>: consultanță, avocatură, contabilitate,
-                  servicii profesionale. Design corporate și funcționalități avansate.
+                  servicii profesionale. Design adaptat identitții companiei și funcționalități avansate.
                 </p>
               </div>
 
@@ -58,7 +58,7 @@ export function BucharestContent() {
                 <h3 className="font-heading text-lg font-bold text-foreground mb-2">Retail & eCommerce</h3>
                 <p className="text-sm text-muted-foreground">
                   <strong>Magazine online București</strong>, branduri locale, retaileri. Soluții complete cu
-                  integrări plăți, transport și facturare electronică.
+                  integrări plăți, transport, curier, facturare automatizată și panou admin intuitiv.
                 </p>
               </div>
             </div>
@@ -83,9 +83,9 @@ export function BucharestContent() {
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-brand mt-2 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Site-uri Corporate</h4>
+                  <h4 className="font-semibold text-foreground mb-1">Site-uri moderne</h4>
                   <p className="text-sm text-muted-foreground">
-                    Pentru companii medii și mari din București
+                    Pentru IMM și companii mari din București
                   </p>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export function BucharestContent() {
 
               <p className="text-muted-foreground leading-relaxed mb-6">
                 <strong className="text-foreground">SEO local</strong> este crucial pentru afacerile din București.
-                Cu mii de companii care concurează pentru aceiași clienți, trebuie să fii vizibil pe Google când
+                Cu mii de companii care concurează pentru aceiași clienți, trebuie să fii vizibil pe Google și AI Chatbots să te găsească ușor când
                 potențialii tăi clienți caută servicii. Optimizăm site-ul tău pentru termeni relevanți precum
                 "consultanță fiscală bucurești", "clinică stomatologică pipera", "avocat bucurești centru" sau orice
                 alt termen specific industriei tale și zonei în care activezi.
@@ -167,12 +167,11 @@ export function BucharestContent() {
 
             <div className="max-w-4xl mb-8 mt-12">
               <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-4">
-                De ce să alegi Website Factory pentru proiectul tău din București?
+                Website Factory – alegerea potrivită pentru proiecte digitale serioase din București
               </h3>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Cu peste <strong className="text-foreground">50 de proiecte finalizate</strong> pentru clienți din
-                București, din diverse industrii (IT, consultanță, medicină, retail, servicii profesionale), înțelegem
+                Cu peste <strong className="text-foreground">150 de proiecte finalizate</strong> pentru clienți noștri, din diverse industrii (IT, consultanță, medicină, retail, servicii profesionale), înțelegem
                 perfect dinamica pieței din capitală. Oferim:{" "}
                 <strong className="text-foreground">design modern la standarde corporative</strong>,{" "}
                 <strong className="text-foreground">optimizare SEO avansată</strong> pentru piața competitivă din

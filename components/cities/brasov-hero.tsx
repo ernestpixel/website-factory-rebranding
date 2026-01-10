@@ -10,9 +10,8 @@ import { cn } from "@/lib/utils"
 
 const trustBadges = [
   "SEO Local Brașov",
-  "Design Premium & Responsive",
+  "Design Premium",
   "Livrare Rapidă",
-  "Suport Dedicat 24/7",
 ]
 
 export function BrasovHero() {
