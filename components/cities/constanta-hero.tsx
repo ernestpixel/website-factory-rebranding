@@ -96,16 +96,16 @@ export function ConstantaHero() {
           {/* Stats */}
           <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">40+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Proiecte Litoral</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">150+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Proiecte Livrate</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">98%</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Satisfacție</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">150+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Clienți mulțumiți</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">Top 3</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">SEO Rankings</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">100%</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">SEO - first approach</div>
             </div>
           </div>
 

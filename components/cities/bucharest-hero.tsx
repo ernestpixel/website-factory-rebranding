@@ -12,7 +12,6 @@ const trustBadges = [
   "SEO Local București",
   "Design Premium & Responsive",
   "Livrare Rapidă",
-  "Suport Dedicat 24/7",
 ]
 
 export function BucharestHero() {
@@ -95,16 +94,16 @@ export function BucharestHero() {
           {/* Stats */}
           <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">50+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Proiecte București</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">150+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Proiecte Livrate</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">98%</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">150+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">Clienți mulțumiți</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">#1</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">SEO Rankings</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">100%</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">SEO - first approach</div>
             </div>
           </div>
 
@@ -115,7 +114,7 @@ export function BucharestHero() {
               onClick={() => (window.location.href = "/contact")}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Solicită ofertă gratuită
+                Solicită ofertă
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-brand-light to-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

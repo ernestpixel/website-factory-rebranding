@@ -1,6 +1,6 @@
 "use client"
 
-import { TrendingUp, Clock, Shield, Users } from "lucide-react"
+import { TrendingUp, Clock, Search, Users } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { useCounter } from "@/hooks/use-counter"
 import { cn } from "@/lib/utils"
@@ -19,41 +19,41 @@ const getBenefits = (cityName: string) => {
   return [
     {
       icon: TrendingUp,
-      stat: 340,
+      stat: 50,
       suffix: "%",
-      label: "Creștere trafic organic",
-      description: `Media clienților noștri din ${cityName} în primele 6 luni`,
+      label: "Creștere medie performanță",
+      description: `Clienții noștri din ${cityName} văd o creștere semnificativă a performanței site-ului`,
     },
     {
       icon: Clock,
       stat: 1.2,
       suffix: "s",
       decimals: 1,
-      label: "Timp de încărcare",
+      label: "Timp  mediu de încărcare",
       description: "Site-uri ultra-rapide optimizate pentru Core Web Vitals",
     },
     {
-      icon: Shield,
-      stat: 99.9,
+      icon: Search,
+      stat: 100,
       suffix: "%",
       decimals: 1,
-      label: "Uptime garantat",
-      description: "Hosting premium pe servere din Europa",
+      label: "Scor SEO",
+      description: "Optimizare completă pentru motoarele de căutare",
     },
     {
       icon: Users,
-      stat: isBrasov ? 35 : isBucharest ? 50 : isCluj ? 40 : isConstanta ? 30 : 35,
-      suffix: "+",
-      label: `Clienți ${cityName}`,
+      stat: isBrasov ? 30 : isBucharest ? 30 : isCluj ? 40 : isConstanta ? 30 : 35,
+      suffix: "%",
+      label: `Creștere conversie ${cityName}`,
       description: isBrasov
-        ? "Pensiuni, restaurante și afaceri locale din Brașov"
+        ? "Design UX optimizat pentru Pensiuni, restaurante și afaceri locale din Brașov"
         : isBucharest
-          ? "Afaceri din capitală care ne-au acordat încrederea"
+          ? "Design UX optimizat pentru afaceri din capitală"
           : isCluj
-            ? "Startup-uri și companii tech din Cluj"
+            ? "Design UX optimizat pentru Startup-uri și companii tech din Cluj"
             : isConstanta
-              ? "Hoteluri, restaurante și afaceri de pe litoral"
-              : "Clinici medicale, afaceri și instituții din Iași",
+              ? "Design UX optimizat pentru Hoteluri, restaurante și afaceri de pe litoral"
+              : "Design UX optimizat pentru Clinici medicale, afaceri și instituții din Iași",
     },
   ]
 }

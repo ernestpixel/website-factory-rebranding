@@ -16,6 +16,19 @@ export function IasiBlob({ className, size = "lg" }: IasiBlobProps) {
   const [isHovering, setIsHovering] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const animationRef = useRef<number>()
+  const [particles, setParticles] = useState<Array<{ top: number; left: number; duration: number }>>([])
+
+  // Initialize particles on client-side only to prevent hydration errors
+  useEffect(() => {
+    const particleCount = size === "sm" ? 5 : 12
+    setParticles(
+      Array.from({ length: particleCount }, () => ({
+        top: 10 + Math.random() * 80,
+        left: 5 + Math.random() * 90,
+        duration: 4 + Math.random() * 5,
+      })),
+    )
+  }, [size])
 
   const sizeConfig = {
     sm: { imageSize: 220, showDetails: false },
@@ -360,7 +373,7 @@ export function IasiBlob({ className, size = "lg" }: IasiBlobProps) {
 
       {/* Floating particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(size === "sm" ? 5 : 12)].map((_, i) => (
+        {particles.map((particle, i) => (
           <div
             key={i}
             className={cn(
@@ -374,10 +387,10 @@ export function IasiBlob({ className, size = "lg" }: IasiBlobProps) {
                     : "bg-blue-400/50 w-1 h-1",
             )}
             style={{
-              top: `${10 + Math.random() * 80}%`,
-              left: `${5 + Math.random() * 90}%`,
+              top: `${particle.top}%`,
+              left: `${particle.left}%`,
               animationName: "float",
-              animationDuration: `${4 + Math.random() * 5}s`,
+              animationDuration: `${particle.duration}s`,
               animationTimingFunction: "ease-in-out",
               animationIterationCount: "infinite",
               animationDelay: `${i * 0.4}s`,

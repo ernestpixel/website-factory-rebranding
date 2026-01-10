@@ -87,7 +87,7 @@ export function ClujHero() {
           {/* Subtitle */}
           <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl text-pretty">
             Agenție de <strong className="text-foreground">web design specializată</strong> în soluții digitale pentru{" "}
-            <strong className="text-foreground">startup-uri și companii tech din Cluj-Napoca</strong>. Creăm{" "}
+            <strong className="text-foreground">startup-uri și IMM-uri din Cluj-Napoca</strong>. Creăm{" "}
             <strong className="text-foreground">aplicații web moderne</strong>, MVP-uri rapide și platforme scalabile,{" "}
             <strong className="text-foreground">optimizate SEO</strong> pentru top poziții Google Cluj.
           </p>
@@ -95,16 +95,16 @@ export function ClujHero() {
           {/* Stats */}
           <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">40+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Proiecte Cluj</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">150+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Proiecte Livrate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">150+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Clienți mulțumiți</div>
             </div>
             <div className="text-center">
               <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">100%</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Tech Modern</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">Top 3</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">SEO Rankings</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">SEO - first approach</div>
             </div>
           </div>
 
