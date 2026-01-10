@@ -64,20 +64,20 @@ export function PortfolioHero() {
           </span>
 
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-            Proiecte care <span className="gradient-text-animated">generează rezultate</span>
+            O parte din <span className="gradient-text-animated">proiectele noastre</span> finalizate.
           </h1>
 
           <p className="mt-8 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto text-pretty">
-            Fiecare proiect este o poveste de succes. Descoperă cum am ajutat afaceri din diverse industrii să își
-            atingă obiectivele digitale.
+            Soluții digitale construite pentru nevoi reale de business. Aici sunt câteva dintre ele.
           </p>
 
           {/* Stats row */}
           <div className="mt-12 flex flex-wrap justify-center gap-8 md:gap-16">
             {[
-              { value: `${totalProjects}+`, label: "Proiecte finalizate" },
-              { value: "100%", label: "Clienți mulțumiți" },
-              { value: "8+", label: "Industrii acoperite" },
+              // { value: `${totalProjects}+`, label: "Proiecte finalizate" },
+              { value: `+150`, label: "Proiecte finalizate" },
+              { value: "95%", label: "Livrat la timp" },
+              { value: "∞", label: "Posibilități" },
             ].map((stat, index) => (
               <div
                 key={stat.label}

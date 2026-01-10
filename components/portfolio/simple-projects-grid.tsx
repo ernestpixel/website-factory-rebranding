@@ -54,9 +54,11 @@ export function SimpleProjectsGrid() {
 
         {/* Projects Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-          {simpleProjects.map((project, index) => (
-            <SimpleProjectCard key={project.id} project={project} index={index} />
-          ))}
+          {[...simpleProjects]
+            .sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
+            .map((project, index) => (
+              <SimpleProjectCard key={project.id} project={project} index={index} />
+            ))}
         </div>
       </div>
     </section>
@@ -81,7 +83,15 @@ function SimpleProjectCard({
       )}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="block">
+      <a
+        href={project.liveUrl && project.liveUrl !== "#" ? project.liveUrl : undefined}
+        target={project.liveUrl && project.liveUrl !== "#" ? "_blank" : undefined}
+        rel={project.liveUrl && project.liveUrl !== "#" ? "noopener noreferrer" : undefined}
+        className={cn(
+          "block",
+          (!project.liveUrl || project.liveUrl === "#") && "cursor-default pointer-events-none"
+        )}
+      >
         {/* Device mockup frame */}
         <div className="relative rounded-xl overflow-hidden glass-card card-lift">
           {/* Glow effect on hover */}
@@ -99,13 +109,15 @@ function SimpleProjectCard({
             {/* Subtle overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            {/* External link indicator */}
-            <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-              <span className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-black/80 text-foreground text-sm font-medium rounded-full backdrop-blur-sm">
-                Vezi proiect
-                <ExternalLink className="h-3.5 w-3.5" />
-              </span>
-            </div>
+            {/* External link indicator - only show if liveUrl is valid */}
+            {project.liveUrl && project.liveUrl !== "#" && (
+              <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                <span className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-black/80 text-foreground text-sm font-medium rounded-full backdrop-blur-sm">
+                  Vezi proiect
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </span>
+              </div>
+            )}
 
             {/* Category badge */}
             <div className="absolute top-3 left-3">
@@ -117,15 +129,20 @@ function SimpleProjectCard({
 
           {/* Content */}
           <div className="p-4">
-            <div className="flex items-start justify-between gap-2">
-              <div>
-                <h3 className="font-heading font-semibold text-foreground group-hover:text-brand transition-colors duration-300">
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <div className="flex-1 min-w-0">
+                <h3 className="font-heading font-semibold text-foreground group-hover:text-brand transition-colors duration-300 line-clamp-2">
                   {project.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mt-0.5">{project.client}</p>
+                <p className="text-sm text-muted-foreground mt-0.5 line-clamp-1">{project.client}</p>
               </div>
-              <span className="text-xs text-muted-foreground">{project.year}</span>
+              <span className="text-xs text-muted-foreground flex-shrink-0 ml-2">{project.year}</span>
             </div>
+            {project.shortDescription && (
+              <p className="text-xs text-muted-foreground/80 line-clamp-2 mt-2 leading-relaxed">
+                {project.shortDescription}
+              </p>
+            )}
           </div>
         </div>
       </a>
