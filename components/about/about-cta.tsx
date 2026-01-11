@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import { ArrowRight, MessageSquare, Phone } from "lucide-react"
 
 export function AboutCTA() {
-  const { ref, isVisible } = useScrollReveal()
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>()
 
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
@@ -22,17 +22,23 @@ export function AboutCTA() {
           className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-brand/20 blur-[100px]"
           delay={0}
           duration={10}
-        />
+        >
+          <div />
+        </FloatingElement>
         <FloatingElement
           className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-glow-violet/20 blur-[80px]"
           delay={2}
           duration={8}
-        />
+        >
+          <div />
+        </FloatingElement>
         <FloatingElement
           className="absolute top-1/2 right-1/3 w-32 h-32 rounded-full bg-glow-cyan/15 blur-[60px]"
           delay={1}
           duration={12}
-        />
+        >
+          <div />
+        </FloatingElement>
       </div>
 
       {/* Decorative metallic shapes */}
