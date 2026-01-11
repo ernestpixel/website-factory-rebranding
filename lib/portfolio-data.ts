@@ -47,7 +47,7 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       "Platformă digitală care conectează locații, furnizori și organizatori de evenimente într-un singur ecosistem. Filtrare inteligentă, listări validate, vizibilitate reală și alte sisteme integrate.",
     shortDescription: "Platformă digitală pentru simplificarea găsirii de locații, servicii și evenimente.",
-    image: "/elegant-restaurant-website-dark-theme-food-photogr.jpg",
+    image: "/projects/UnEvent.webp",
     results: [
       { label: "Listări în prima lună", value: "61+" },
       { label: "Viteză încărcare", value: "0.4s" },
@@ -77,7 +77,7 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       "Un magazin online care importă și pune în valoare produse naturale, ceaiuri, cafea de specialitate și suplimente tradiționale din Java, Indonezia — orientat spre consumatori interesați de well-being și alimentație sănătoasă. Unul dintre cei mai vechi parteneri ai Website Factory - Mentenanță din Martie 2023.",
     shortDescription: "Magazin online cu produse naturale din Indonezia. Optimizat pentru conversii și fidelizare.",
-    image: "/modern-electronics-ecommerce-website-dark-blue-the.jpg",
+    image: "/projects/blue-phoenix.webp",
     results: [
       { label: "Conversii", value: "+120%" },
       { label: "Creștere % în 2 ani", value: "2329%" },
@@ -100,7 +100,7 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       "Merpano este o companie importantă din industria agricolă din Vestul României, activă în furnizarea de echipamente, soluții și consultanță pentru fermieri și parteneri din domeniu. Website-ul servește ca unul dintre punctele principale de contact digital: prezentare corporate, portofoliu produse, servicii, echipă și valori.",
     shortDescription: "Website de prezentare pentru o companie importantă din industria agricolă.",
-    image: "/wellness-meditation-app-interface-calm-purple-grad.jpg",
+    image: "/projects/merpano.webp",
     results: [
       { label: "Core Web Vitals - SEO ", value: "100%" },
       { label: "Timp mediu petrecut pe site", value: "2:04 min" },
@@ -122,8 +122,20 @@ export const featuredProjects: FeaturedProject[] = [
 // Manual array of all projects - edit titles, descriptions, URLs, and order here
 export const simpleProjects: SimpleProject[] = [
   // Website de prezentare
-  {
+    {
     id: "s1",
+    title: "artimm.digital",
+    client: "Artimm Digital SRL",
+    category: "website",
+    categoryLabel: "Website de prezentare",
+    image: "/projects/website-de-prezentare-artimm-digital.webp",
+    liveUrl: "https://artimm.digital/",
+    year: "2025",
+    shortDescription: "Website de prezentare companie de consultanță digitală, Web design, Web development, SEO",
+    order: 1,
+  },
+  {
+    id: "s45",
     title: "Bradluc - Mentenanță Piscine",
     client: "Bradluc M & D SRL",
     category: "website",
@@ -132,7 +144,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://piscinetimis.ro/",
     year: "2024",
     shortDescription: "Website de prezentare - Servicii de curățenie și mentenanță piscine, Web design, Web development",
-    order: 1,
+    order: 45,
   },
   {
     id: "s2",
@@ -144,7 +156,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "http://thermosolarenergy.ro/",
     year: "2023",
     shortDescription: "Website de prezentare compamnie vanzare de panouri fotovoltaice, Web Design, Mentenanță, Găzduire domeniu, SEO",
-    order: 2,
+    order: 64
   },
   {
     id: "s3",
@@ -156,7 +168,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://reveliomedical.com/",
     year: "2024",
     shortDescription: "Website de prezentare și achiziție abonamente medicale și descărcare aplicație mobilă, Web design, Web development, Mentenanță, domeniu, SEO",
-    order: 3,
+    order: 20,
   },
   {
     id: "s4",
@@ -168,7 +180,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://nnnewsmedia.com/",
     year: "2024",
     shortDescription: "Website de știri - Nigeria, Web Design, Design Grafic, Mentenanță, Găzduire domeniu, SEO",
-    order: 4,
+    order: 43,
   },
   {
     id: "s5",
@@ -180,7 +192,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://afterschool-dumbravita.ro/",
     year: "2023",
     shortDescription: "Website de prezentare afterschool, Web Design, Mentenanță, Găzduire domeniu, SEO",
-    order: 5,
+    order: 50,
   },
   {
     id: "s6",
@@ -204,7 +216,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "http://luxurycleaning.ro/",
     year: "2024",
     shortDescription: "Website de prezentare firmă de curățenie, Web Design, SEO",
-    order: 7,
+    order: 61,
   },
   {
     id: "s8",
@@ -216,7 +228,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://dezzign.ist/",
     year: "2024",
     shortDescription: "Pagină de prezentare - Designer de interior, Web design, Web development, SEO",
-    order: 8,
+    order: 67,
   },
   {
     id: "s11",
@@ -228,7 +240,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://theradar.info/",
     year: "2025",
     shortDescription: "Website de prezentare - Change agent, Web design, Web development, SEO, Mentenanta",
-    order: 11,
+    order: 63,
   },
   {
     id: "s12",
@@ -240,7 +252,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://youplusagency.ro/",
     year: "2025",
     shortDescription: "Website de prezentare și achiziții cursuri - Agenție de marketing, Web design, Web development, Achiziție în rate cursuri, Design Grafic, SEO",
-    order: 12,
+    order: 9,
   },
   {
     id: "s13",
@@ -252,7 +264,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://atp-apitherapie.com/",
     year: "2023",
     shortDescription: "Design landing page, Găzduire domeniu, SEO",
-    order: 13,
+    order: 67,
   },
   {
     id: "s15",
@@ -276,7 +288,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://edrones.ro/",
     year: "2024",
     shortDescription: "Website de preszentare - Drone agricole, Web design, Web Development, SEO",
-    order: 18,
+    order: 13,
   },
   {
     id: "s20",
@@ -288,7 +300,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://maravoclinic.ro/",
     year: "2025",
     shortDescription: "Website de prezentare clinică de înfrumusețare, Web design, Graphic design, Consultanta, Web development, Mentenanță, domeniu, SEO",
-    order: 20,
+    order: 3,
   },
   {
     id: "s21",
@@ -396,7 +408,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://bimtim.com/",
     year: "2025",
     shortDescription: "Website de prezentare - Proiectare digitală clădiri, Web design, Web development, Portofoliu, Design Grafic, SEO",
-    order: 30,
+    order: 14,
   },
   {
     id: "s31",
@@ -432,7 +444,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://jurjut-mart.ro/",
     year: "2023",
     shortDescription: "Website de prezentare avocați, Web design, Mentenanță, Găzduire domeniu, Design Logo, SEO",
-    order: 34,
+    order: 15,
   },
   {
     id: "s35",
@@ -516,7 +528,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://www.geonordica.ro/",
     year: "2025",
     shortDescription: "Website de prezentare firma topografica Iași, Web design, Web development, Mentenanță, Găzduire, SEO",
-    order: 43,
+    order: 4,
   },
   {
     id: "s44",
@@ -529,18 +541,6 @@ export const simpleProjects: SimpleProject[] = [
     year: "2025",
     shortDescription: "Website de prezentare avocat, Web design, Mentenanță, Găzduire domeniu, Design Logo, SEO",
     order: 44,
-  },
-  {
-    id: "s45",
-    title: "artimm.digital",
-    client: "Artimm Digital SRL",
-    category: "website",
-    categoryLabel: "Website de prezentare",
-    image: "/projects/website-de-prezentare-artimm-digital.webp",
-    liveUrl: "https://artimm.digital/",
-    year: "2025",
-    shortDescription: "Website de prezentare companie de consultanță digitală, Web design, Web development, SEO",
-    order: 45,
   },
   {
     id: "s46",
@@ -577,7 +577,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://clatite-pinochio.ro/",
     year: "2023",
     shortDescription: "Magazin online - restaurant comenzi la domiciliu, Mentenanță, Marketing Digital, Web Design, Web Development, Design grafic, SEO",
-    order: 48,
+    order: 16,
   },
   {
     id: "s49",
@@ -588,8 +588,8 @@ export const simpleProjects: SimpleProject[] = [
     image: "/projects/magazin-online-Scar.webp",
     liveUrl: "Aplicație online de vânzare haine adolescenți, Scanare QR unic Web design, Web Development, Next.js - React, Găzduire, SEO, Mentenanta",
     year: "2025",
-    shortDescription: "",
-    order: 49,
+    shortDescription: "Aplicație online de vânzare haine adolescenți, Scanare QR unic Web design, Web Development, Next.js - React, Găzduire, SEO, Mentenanta",
+    order: 5,
   },
   {
     id: "s51",
@@ -661,7 +661,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://restaurant-gloria.ro/",
     year: "2024",
     shortDescription: "Magazin online - restaurant comenzi la domiciliu, Mentenanță, Marketing Digital, Web Design, Web Development, Design grafic, SEO",
-    order: 61,
+    order: 7,
   },
   {
     id: "s62",
@@ -685,7 +685,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://sotherm.ro/",
     year: "2025",
     shortDescription: "Magazin Online - Companie italiană de produse cosmetice, Web design, Web development, SEO",
-    order: 63,
+    order: 10,
   },
   {
     id: "s64",
@@ -697,7 +697,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://pvsystem.ro/",
     year: "2025",
     shortDescription: "Magazin online și calculator sisteme panouri fotovoltaice complete, sistem prețuri în funcție de rolul utilizatorului, Web design, Web development, Mentenanță, domeniu, SEO",
-    order: 64,
+    order: 2,
   },
   {
     id: "s65",
@@ -721,7 +721,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "http://petzaniverse.ro/",
     year: "2026",
     shortDescription: "Magazin online pet shop, Web design, Web development, Design grafic, Mentenanță, SEO, Logo & Branding design",
-    order: 66,
+    order: 12,
   },
   {
     id: "s67",
@@ -733,7 +733,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://sotherm.it/",
     year: "2025",
     shortDescription: "Platformă online pentru organizarea evenimentelor, Web design, Web development, React-Next.js, Mentenanță, Găzduire, Logo & Branding design, SEO",
-    order: 67,
+    order: 11,
   },
   {
     id: "s68",
@@ -745,7 +745,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://the-permanent.com/",
     year: "2025",
     shortDescription: "Magazin online pentru produse cosmetice, sistem de fidelizare clienți, Web design, Web development, Mentenanță, SEO",
-    order: 68,
+    order: 8,
   },
   // Platforme custom
   {
@@ -758,7 +758,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://documentrapid.ro/",
     year: "2025",
     shortDescription: "Platformă online pentru achizitionarea extraselor CF ANCPI, Web design, Web development, Mentenanță, Găzduire, SEO",
-    order: 70,
+    order: 17,
   },
   {
     id: "s71",
@@ -770,7 +770,7 @@ export const simpleProjects: SimpleProject[] = [
     liveUrl: "https://www.displayer.ro/",
     year: "2025",
     shortDescription: "Website de prezentare standuri expo, Web design, Web development, Mentenanță, SEO",
-    order: 71,
+    order: 18,
   },
 ]
 

@@ -5,33 +5,20 @@ import { cn } from "@/lib/utils"
 import { ArrowRight, ExternalLink, TrendingUp, ShoppingCart } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { featuredProjects } from "@/lib/portfolio-data"
 
-const ecommerceProjects = [
-  {
-    slug: "techzone-electronics",
-    name: "TechZone Electronics",
-    category: "Magazin Online",
-    image: "/modern-electronics-ecommerce-website-dark-blue-the.jpg",
-    results: "+245% vânzări",
-    platform: "WooCommerce",
-  },
-  {
-    slug: "fashionista-boutique",
-    name: "Fashionista Boutique",
-    category: "Fashion eCommerce",
-    image: "/fashion-ecommerce-website-elegant-minimal-design.jpg",
-    results: "+180% conversie",
-    platform: "Next.js + Payload",
-  },
-  {
-    slug: "organic-market",
-    name: "Organic Market",
-    category: "Food & Beverages",
-    image: "/organic-food-ecommerce-website-green-fresh-design.jpg",
-    results: "+320% comenzi",
-    platform: "WooCommerce",
-  },
-]
+// Get ecommerce projects from featured projects
+const ecommerceProjects = featuredProjects
+  .filter((project) => project.category === "ecommerce")
+  .slice(0, 3)
+  .map((project) => ({
+    slug: project.slug,
+    name: project.title,
+    category: project.categoryLabel,
+    image: project.image,
+    results: project.results[0]?.value || "Rezultate măsurabile",
+    platform: project.technologies[0] || "Custom",
+  }))
 
 export function EcommercePortfolio() {
   const { ref, isVisible } = useScrollReveal()

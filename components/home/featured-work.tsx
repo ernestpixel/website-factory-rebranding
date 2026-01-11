@@ -7,39 +7,42 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { FloatingElement } from "@/components/ui/floating-element"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { featuredProjects } from "@/lib/portfolio-data"
 
-const caseStudies = [
-  {
-    id: "case-1",
-    title: "Platform E-Learning",
-    industry: "Educație",
-    outcome: "+340% utilizatori în 6 luni",
-    description: "Platformă modernă de învățare online cu video streaming și quiz-uri interactive.",
-    image: "/modern-e-learning-platform-dashboard-with-purple-a.jpg",
-    href: "/portofoliu/platform-elearning",
-    color: "from-brand to-brand-light",
-  },
-  {
-    id: "case-2",
-    title: "Magazin Fashion Online",
-    industry: "E-commerce",
-    outcome: "+180% conversii",
-    description: "Experiență de cumpărare premium cu filtre avansate și checkout optimizat.",
-    image: "/luxury-fashion-ecommerce-website-with-elegant-desi.jpg",
-    href: "/portofoliu/magazin-fashion",
-    color: "from-glow-violet to-brand",
-  },
-  {
-    id: "case-3",
-    title: "App Livrări Restaurant",
-    industry: "Food & Delivery",
-    outcome: "50k+ descărcări",
-    description: "Aplicație mobilă pentru comenzi cu tracking în timp real și notificări push.",
-    image: "/food-delivery-mobile-app-interface-modern-design.jpg",
-    href: "/portofoliu/app-livrari",
-    color: "from-glow-cyan to-glow-violet",
-  },
-]
+// Map category to color gradient
+const getColorByCategory = (category: string): string => {
+  switch (category) {
+    case "custom":
+      return "from-brand to-brand-light"
+    case "ecommerce":
+      return "from-glow-violet to-brand"
+    case "website":
+      return "from-glow-cyan to-glow-violet"
+    case "app":
+      return "from-glow-cyan to-brand"
+    default:
+      return "from-brand to-brand-light"
+  }
+}
+
+// Transform featured projects to case studies format
+const caseStudies = featuredProjects.slice(0, 3).map((project) => {
+  const firstResult = project.results[0]
+  const outcome = firstResult
+    ? `${firstResult.value} ${firstResult.label}`
+    : "Rezultate măsurabile"
+
+  return {
+    id: project.id,
+    title: project.title,
+    industry: project.categoryLabel,
+    outcome,
+    description: project.shortDescription || project.description,
+    image: project.image,
+    href: `/portofoliu/${project.slug}`,
+    color: getColorByCategory(project.category),
+  }
+})
 
 export function FeaturedWork() {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>()

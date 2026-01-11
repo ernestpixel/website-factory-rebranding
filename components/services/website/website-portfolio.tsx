@@ -5,30 +5,19 @@ import Link from "next/link"
 import { ArrowUpRight, ExternalLink } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { cn } from "@/lib/utils"
+import { featuredProjects } from "@/lib/portfolio-data"
 
-const websiteProjects = [
-  {
-    title: "Flavor House",
-    category: "Restaurant",
-    image: "/elegant-restaurant-website-dark-theme-food-photogr.jpg",
-    results: "+180% rezervări online",
-    href: "/portofoliu/flavor-house",
-  },
-  {
-    title: "Arpeggio Clinic",
-    category: "Medical",
-    image: "/wellness-meditation-app-interface-calm-purple-grad.jpg",
-    results: "+250% programări",
-    href: "/portofoliu/arpeggio-clinic",
-  },
-  {
-    title: "TechStart Solutions",
-    category: "Corporate",
-    image: "/modern-electronics-ecommerce-website-dark-blue-the.jpg",
-    results: "+340% lead-uri",
-    href: "/portofoliu/techstart-solutions",
-  },
-]
+// Get website projects from featured projects
+const websiteProjects = featuredProjects
+  .filter((project) => project.category === "website")
+  .slice(0, 3)
+  .map((project) => ({
+    title: project.title,
+    category: project.categoryLabel,
+    image: project.image,
+    results: project.results[0]?.value || "Rezultate măsurabile",
+    href: `/portofoliu/${project.slug}`,
+  }))
 
 export function WebsitePortfolio() {
   const { ref, isVisible } = useScrollReveal()
