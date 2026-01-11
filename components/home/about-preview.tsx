@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 const stats = [
   { icon: Users, value: "150+", label: "Clienți mulțumiți" },
   { icon: Award, value: "5+", label: "Ani experiență" },
-  { icon: Clock, value: "24h", label: "Timp răspuns" },
+  { icon: Clock, value: "-24h", label: "Timp maxim de răspuns" },
   { icon: Zap, value: "+95%", label: "Proiecte livrate la timp" },
 ]
 

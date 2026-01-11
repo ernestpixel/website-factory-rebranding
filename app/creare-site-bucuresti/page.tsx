@@ -5,6 +5,8 @@ import { CityServices } from "@/components/cities/city-services"
 import { CityBenefits } from "@/components/cities/city-benefits"
 import { CityFaq } from "@/components/cities/city-faq"
 import { CityCTA } from "@/components/cities/city-cta"
+import { FeaturedWork } from "@/components/home/featured-work"
+import { Testimonials } from "@/components/home/testimonials"
 import {
   generatePageMetadata,
   generateLocalBusinessSchema,
@@ -128,7 +130,9 @@ export default function CreareSiteBucurestiPage() {
       <main>
         <BucharestHero />
         <CityServices cityName={cityName} />
+        <FeaturedWork />
         <BucharestContent />
+        <Testimonials />
         <CityBenefits cityName={cityName} />
         <CityFaq cityName={cityName} faqs={bucharestFaqs} />
         <CityCTA cityName={cityName} />
