@@ -3,7 +3,7 @@ import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo"
 import { Mail, MapPin } from "lucide-react"
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Politică de confidențialitate | Website Factory",
+  title: "Politică de confidențialitate - Website Factory - Web design",
   description:
     "Politica de confidențialitate și prelucrare a datelor cu caracter personal pentru Website Factory. Informații despre colectarea, utilizarea și protecția datelor personale conform GDPR.",
   path: "/politici-de-confidentialitate",

@@ -691,7 +691,7 @@ export function PriceEstimatorWizard() {
                           Datele tale de contact
                         </h2>
                         <p className="mt-2 text-muted-foreground">
-                          Completează pentru a primi estimarea și o confirmare pe email
+                          Completează pentru a primi <strong>estimarea instant</strong> și o <strong>confirmare pe email</strong>
                         </p>
                       </div>
 

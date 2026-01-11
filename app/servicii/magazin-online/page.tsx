@@ -12,9 +12,9 @@ import { EcommerceFaq } from "@/components/services/ecommerce/ecommerce-faq"
 import { EcommerceCta } from "@/components/services/ecommerce/ecommerce-cta"
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Creare Magazin Online Timișoara | eCommerce WooCommerce & Next.js | Website Factory",
+  title: "Creare Magazin Online Timișoara - Website Factory - Web design",
   description:
-    "Dezvoltăm magazine online performante cu WooCommerce și Next.js + Payload CMS. Funcționalități de loializare clienți, checkout optimizat, plăți securizate. Solicită ofertă gratuită!",
+    "Dezvoltare magazin online performant. Funcționalități de loializare clienți, checkout optimizat, plăți securizate, ușor de administrat.",
   path: "/servicii/magazin-online",
   keywords: [
     "creare magazin online timisoara",

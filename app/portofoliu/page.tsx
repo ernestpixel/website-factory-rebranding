@@ -6,9 +6,9 @@ import { SimpleProjectsGrid } from "@/components/portfolio/simple-projects-grid"
 import { PortfolioCta } from "@/components/portfolio/portfolio-cta"
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Portofoliu | Website Factory - Proiecte Web Design Timișoara",
+  title: "Portofoliu - Website Factory - Web design",
   description:
-    "Descoperă proiectele noastre de web design, magazine online și aplicații mobile. Portofoliu cu rezultate reale și studii de caz detaliate din Timișoara.",
+    "Descoperă proiectele noastre de web design, magazine online și aplicații custom. Portofoliu cu rezultate reale și studii de caz detaliate.",
   path: "/portofoliu",
   keywords: [
     "portofoliu web design",

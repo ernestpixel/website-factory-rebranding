@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return generatePageMetadata({
-    title: `${project.title} - Studiu de caz | Website Factory`,
+    title: `${project.title} - Studiu de caz  - Website Factory - Web design`,
     description: project.description,
     path: `/portofoliu/${project.slug}`,
     keywords: [project.categoryLabel, project.client, "studiu de caz", "portofoliu web design"],
