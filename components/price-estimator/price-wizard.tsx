@@ -283,7 +283,6 @@ export function PriceEstimatorWizard() {
           projectType: projectTypeName,
           budget: formState.budget || undefined,
           features: features.length > 0 ? features : undefined,
-          features: features.length > 0 ? features : undefined,
           estimatedPrice: result.text,
           gRecaptchaToken,
         }),
