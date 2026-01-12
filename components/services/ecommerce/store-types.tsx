@@ -113,12 +113,8 @@ export function StoreTypes() {
               <div
                 key={type.id}
                 className={cn(
-                  "group relative bg-card rounded-2xl sm:rounded-3xl border transition-all duration-500 cursor-pointer card-metallic overflow-visible",
-                  type.popular ? "pt-7 sm:pt-8 pb-5 sm:pb-8 px-5 sm:px-8" : "p-5 sm:p-8",
-                  isActive
-                    ? "border-brand/50 shadow-xl shadow-brand/10 md:scale-[1.02]"
-                    : "border-border/50 hover:border-brand/30",
-                  type.popular && "ring-2 ring-brand/20",
+                  "group relative cursor-pointer h-full transition-all duration-500",
+                   isActive && "md:scale-[1.02]"
                 )}
                 onClick={() => {
                   setActiveType(type.id)
@@ -128,95 +124,107 @@ export function StoreTypes() {
                   animationDelay: `${index * 100}ms`,
                 }}
               >
-                {/* Popular badge */}
+                {/* Popular badge - Outside overflow hidden */}
                 {type.popular && (
-                  <div className="absolute -top-2.5 sm:-top-3 left-1/2 -translate-x-1/2 px-3 sm:px-4 py-1 rounded-full bg-brand text-brand-foreground text-[10px] sm:text-xs font-semibold whitespace-nowrap z-20 shadow-lg">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-brand text-brand-foreground text-xs font-semibold whitespace-nowrap z-30 shadow-lg ring-4 ring-background">
                     Cel mai popular
                   </div>
                 )}
 
-                {/* Header Row - always visible */}
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    {/* Icon */}
-                    <div
-                      className={cn(
-                        "w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-300 flex-shrink-0",
-                        isActive ? "bg-gradient-to-br from-brand to-glow-violet" : "bg-muted group-hover:bg-brand/10",
-                      )}
-                    >
-                      <Icon
-                        className={cn(
-                          "w-6 h-6 sm:w-8 sm:h-8 transition-colors",
-                          isActive ? "text-white" : "text-brand",
-                        )}
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-lg sm:text-xl font-bold">{type.name}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground mt-1 line-clamp-2 md:line-clamp-none">
-                        {type.description}
-                      </p>
-                    </div>
-                  </div>
-                  <ChevronDown
-                    className={cn(
-                      "w-5 h-5 text-muted-foreground transition-transform md:hidden flex-shrink-0",
-                      isExpanded && "rotate-180",
-                    )}
-                  />
-                </div>
-
+                {/* Main Card Content - with overflow hidden for metallic effect */}
                 <div
                   className={cn(
-                    "overflow-hidden transition-all duration-500 md:overflow-visible",
-                    isExpanded
-                      ? "max-h-[800px] opacity-100 mt-4 sm:mt-6"
-                      : "max-h-0 opacity-0 md:max-h-none md:opacity-100 md:mt-6",
+                    "relative bg-card rounded-2xl sm:rounded-3xl border transition-all duration-500 card-metallic h-full overflow-hidden",
+                    type.popular ? "pt-8 sm:pt-9 pb-5 sm:pb-8 px-5 sm:px-8" : "p-5 sm:p-8",
+                    isActive
+                      ? "border-brand/50 shadow-xl shadow-brand/10"
+                      : "border-border/50 hover:border-brand/30",
+                    type.popular && "ring-2 ring-brand/20",
                   )}
                 >
-                  {/* Features */}
-                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                    {type.features.slice(0, isActive ? type.features.length : 4).map((feature) => (
-                      <li key={feature} className="flex items-start gap-2 text-xs sm:text-sm">
-                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                    {!isActive && type.features.length > 4 && (
-                      <li className="text-xs sm:text-sm text-brand font-medium">
-                        + {type.features.length - 4} mai multe...
-                      </li>
-                    )}
-                  </ul>
-
-                  {/* Meta info */}
-                  <div className="pt-4 sm:pt-6 border-t border-border/50 space-y-2 sm:space-y-3">
-                    <div className="flex justify-between text-xs sm:text-sm">
-                      <span className="text-muted-foreground">Platformă</span>
-                      <span className="font-medium">{type.platform}</span>
+                  {/* Header Row - always visible */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      {/* Icon */}
+                      <div
+                        className={cn(
+                          "w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-300 flex-shrink-0",
+                          isActive ? "bg-gradient-to-br from-brand to-glow-violet" : "bg-muted group-hover:bg-brand/10",
+                        )}
+                      >
+                        <Icon
+                          className={cn(
+                            "w-6 h-6 sm:w-8 sm:h-8 transition-colors",
+                            isActive ? "text-white" : "text-brand",
+                          )}
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-heading text-lg sm:text-xl font-bold">{type.name}</h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1 line-clamp-2 md:line-clamp-none">
+                          {type.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex justify-between text-xs sm:text-sm">
-                      <span className="text-muted-foreground">Timp livrare</span>
-                      <span className="font-medium">{type.timeline}</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:justify-between text-xs sm:text-sm gap-1">
-                      <span className="text-muted-foreground">Ideal pentru</span>
-                      <span className="font-medium sm:text-right sm:max-w-[60%]">{type.idealFor}</span>
-                    </div>
+                    <ChevronDown
+                      className={cn(
+                        "w-5 h-5 text-muted-foreground transition-transform md:hidden flex-shrink-0",
+                        isExpanded && "rotate-180",
+                      )}
+                    />
                   </div>
 
-                  {/* CTA */}
-                  {isActive && (
-                    <Link
-                      href="/contact"
-                      className="mt-4 sm:mt-6 w-full flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-brand text-brand-foreground font-semibold text-xs sm:text-sm hover:bg-brand-light transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Solicită ofertă
-                      <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    </Link>
-                  )}
+                  <div
+                    className={cn(
+                      "overflow-hidden transition-all duration-500 md:overflow-visible",
+                      isExpanded
+                        ? "max-h-[800px] opacity-100 mt-4 sm:mt-6"
+                        : "max-h-0 opacity-0 md:max-h-none md:opacity-100 md:mt-6",
+                    )}
+                  >
+                    {/* Features */}
+                    <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                      {type.features.slice(0, isActive ? type.features.length : 4).map((feature) => (
+                        <li key={feature} className="flex items-start gap-2 text-xs sm:text-sm">
+                          <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                      {!isActive && type.features.length > 4 && (
+                        <li className="text-xs sm:text-sm text-brand font-medium">
+                          + {type.features.length - 4} mai multe...
+                        </li>
+                      )}
+                    </ul>
+
+                    {/* Meta info */}
+                    <div className="pt-4 sm:pt-6 border-t border-border/50 space-y-2 sm:space-y-3">
+                      <div className="flex justify-between text-xs sm:text-sm">
+                        <span className="text-muted-foreground">Platformă</span>
+                        <span className="font-medium">{type.platform}</span>
+                      </div>
+                      <div className="flex justify-between text-xs sm:text-sm">
+                        <span className="text-muted-foreground">Timp livrare</span>
+                        <span className="font-medium">{type.timeline}</span>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:justify-between text-xs sm:text-sm gap-1">
+                        <span className="text-muted-foreground">Ideal pentru</span>
+                        <span className="font-medium sm:text-right sm:max-w-[60%]">{type.idealFor}</span>
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    {isActive && (
+                      <Link
+                        href="/contact"
+                        className="mt-4 sm:mt-6 w-full flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-brand text-brand-foreground font-semibold text-xs sm:text-sm hover:bg-brand-light transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Solicită ofertă
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </div>
             )

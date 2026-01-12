@@ -16,7 +16,26 @@ export async function POST(request: Request) {
       features,
       details,
       estimatedPrice,
+      gRecaptchaToken,
     } = body
+
+    // Validate reCAPTCHA
+    if (!gRecaptchaToken) {
+      return NextResponse.json({ error: "Verificare reCAPTCHA lipsă." }, { status: 400 })
+    }
+
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY || "6Le14kcsAAAAAGkruan7Y-XLwuw0UwrVBdvLik5a"
+    const recaptchaRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `secret=${recaptchaSecret}&response=${gRecaptchaToken}`,
+    })
+    const recaptchaData = await recaptchaRes.json()
+
+    if (!recaptchaData.success || recaptchaData.score < 0.5) {
+      console.error("reCAPTCHA failed:", recaptchaData)
+      return NextResponse.json({ error: "Verificare anti-spam eșuată." }, { status: 400 })
+    }
 
     // Validate required fields
     if (!name || !email || !projectType) {

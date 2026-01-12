@@ -19,14 +19,19 @@ export function Testimonials() {
   const [scrollLeft, setScrollLeft] = useState(0)
 
   // Calculate items per view based on screen size
+  // Initialize with a default value (3) for server consistency
+  const [itemsPerView, setItemsPerView] = useState(3)
+  const [mounted, setMounted] = useState(false)
+
   const getItemsPerView = useCallback(() => {
     if (typeof window === "undefined") return 3
     return window.innerWidth >= 768 ? 3 : 1
   }, [])
 
-  const [itemsPerView, setItemsPerView] = useState(getItemsPerView)
-
   useEffect(() => {
+    setMounted(true)
+    setItemsPerView(getItemsPerView())
+    
     const handleResize = () => {
       setItemsPerView(getItemsPerView())
     }
@@ -35,6 +40,7 @@ export function Testimonials() {
     return () => window.removeEventListener("resize", handleResize)
   }, [getItemsPerView])
 
+  // Don't render complex logic until mounted to prevent hydration mismatch
   const maxIndex = Math.max(0, testimonials.length - itemsPerView)
 
   // Scroll to specific index
@@ -273,9 +279,8 @@ export function Testimonials() {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+            // Mobile: use native scrolling for best performance
+            // Removed custom touch handlers to avoid fighting native scroll physics
             style={{
               WebkitOverflowScrolling: "touch",
               scrollbarWidth: "none",
@@ -290,7 +295,7 @@ export function Testimonials() {
                   "bg-card/80 backdrop-blur-sm border border-border/50",
                   "transition-all duration-500",
                   "hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/5",
-                  "card-lift card-metallic",
+                  "card-lift card-metallic will-change-transform",
                   // Mobile: full width minus padding, Desktop: 3 cards per view
                   "w-[calc(100%-3rem)] md:w-[calc((100%-3rem)/3)]",
                 )}

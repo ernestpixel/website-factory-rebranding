@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { useRecaptcha } from "@/hooks/use-recaptcha"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -20,6 +21,7 @@ const projectTypes = [
 
 export function ContactForm() {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>()
+  const { executeRecaptcha } = useRecaptcha()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -38,6 +40,8 @@ export function ContactForm() {
     setError(null)
 
     try {
+      const gRecaptchaToken = await executeRecaptcha("contact")
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -49,6 +53,7 @@ export function ContactForm() {
           phone: formData.telefon,
           company: formData.companie || undefined,
           message: formData.mesaj,
+          gRecaptchaToken,
         }),
       })
 

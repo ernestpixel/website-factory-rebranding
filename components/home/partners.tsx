@@ -180,9 +180,7 @@ export function Partners() {
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          // Mobile: native scrolling optimization
           onWheel={handleWheel}
           onScroll={handleScroll}
           style={{
@@ -194,12 +192,12 @@ export function Partners() {
           {duplicatedPartners.map((partner, index) => (
             <div
               key={`${partner.name}-${index}`}
-              className="flex-shrink-0 group"
+              className="flex-shrink-0 group snap-start"
               style={{
                 animation: index < partners.length ? `fadeInUp 0.6s ease-out ${index * 0.1}s forwards` : undefined,
               }}
             >
-              <div className="relative w-40 sm:w-48 lg:w-56 h-24 sm:h-28 lg:h-32 rounded-xl bg-card/80 backdrop-blur-sm border border-border/40 shadow-sm hover:shadow-md hover:border-border/60 transition-all duration-300 p-4 sm:p-5 lg:p-6 flex items-center justify-center">
+              <div className="relative w-40 sm:w-48 lg:w-56 h-24 sm:h-28 lg:h-32 rounded-xl bg-white dark:bg-gray-800 backdrop-blur-sm border border-border/40 shadow-sm hover:shadow-md hover:border-border/60 transition-all duration-300 p-4 sm:p-5 lg:p-6 flex items-center justify-center">
                 <Image
                   src={partner.logo}
                   alt={generatePartnerLogoAltText(partner.name)}

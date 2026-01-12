@@ -1,9 +1,10 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { useRecaptcha } from "@/hooks/use-recaptcha"
 import { FloatingElement } from "@/components/ui/floating-element"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -155,6 +156,7 @@ function calculatePrice(state: FormState): { price: number | null; text: string;
 
 export function PriceEstimatorWizard() {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>()
+  const { executeRecaptcha } = useRecaptcha()
   const [showResult, setShowResult] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -175,6 +177,15 @@ export function PriceEstimatorWizard() {
 
   const totalSteps = 4
   const progressPercent = (formState.step / totalSteps) * 100
+
+  // Scroll to top on step change
+  useEffect(() => {
+    if (ref.current) {
+      // Scroll smoothly to the top of the form container
+      // Adding a small offset to account for any fixed headers if necessary
+      ref.current.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }, [formState.step, ref])
 
   const updateState = (updates: Partial<FormState>) => {
     setFormState((prev) => ({ ...prev, ...updates }))
@@ -238,6 +249,8 @@ export function PriceEstimatorWizard() {
     setError(null)
 
     try {
+      const gRecaptchaToken = await executeRecaptcha("price_estimate")
+
       const result = calculatePrice(formState)
       const projectTypeName = projectTypes.find((t) => t.id === formState.projectType)?.title || formState.projectType
 
@@ -270,7 +283,9 @@ export function PriceEstimatorWizard() {
           projectType: projectTypeName,
           budget: formState.budget || undefined,
           features: features.length > 0 ? features : undefined,
+          features: features.length > 0 ? features : undefined,
           estimatedPrice: result.text,
+          gRecaptchaToken,
         }),
       })
 

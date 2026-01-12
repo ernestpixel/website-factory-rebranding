@@ -207,6 +207,17 @@ export function Footer() {
               în Timișoara
             </p>
           </div>
+          <div className="mt-4 text-center text-xs text-muted-foreground/60">
+            This site is protected by reCAPTCHA and the Google{" "}
+            <a href="https://policies.google.com/privacy" className="hover:text-brand transition-colors">
+              Privacy Policy
+            </a>{" "}
+            and{" "}
+            <a href="https://policies.google.com/terms" className="hover:text-brand transition-colors">
+              Terms of Service
+            </a>{" "}
+            apply.
+          </div>
         </div>
       </div>
     </footer>

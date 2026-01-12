@@ -63,9 +63,9 @@ export const metadata: Metadata = {
       "Servicii profesionale de web design, magazin online si optimizare SEO, vizibilitate locală și națională - De la idee la soluție digitală",
     images: [
       {
-        url: "/website-factory-og.webp",
-        width: 1200,
-        height: 630,
+        url: "/website-factory-og-square.webp",
+        width: 1080,
+        height: 1080,
         alt: "Website Factory - Web Design Timișoara",
         type: "image/webp",
       },
@@ -75,20 +75,20 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Creare Site Timișoara - Web Design Timișoara - Website Factory",
     description: "Servicii profesionale de web design, magazin online si optimizare SEO, vizibilitate locală și națională - De la idee la soluție digitală",
-    images: ["/website-factory-og.webp"],
+    images: ["/website-factory-og-square.webp"],
   },
   alternates: {
     canonical: "https://websitefactory.ro",
   },
   icons: {
     icon: [
-      { url: "/website-factory-favicon.ico", type: "image/x-icon" },
+      { url: "/website-factory-favicon.webp", type: "image/webp" },
       { url: "/website-factory-favicon.ico", sizes: "any" },
     ],
     apple: [
-      { url: "/website-factory-favicon.ico", type: "image/x-icon" },
+      { url: "/website-factory-favicon.webp", type: "image/webp" },
     ],
-    shortcut: "/website-factory-favicon.ico",
+    shortcut: "/website-factory-favicon.webp",
   },
 }
 

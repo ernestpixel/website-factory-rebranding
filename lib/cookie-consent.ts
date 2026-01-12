@@ -95,23 +95,23 @@ export function initializeAnalytics(): void {
   const consent = getCookieConsent()
   if (!consent) return
 
-  // Google Analytics
-  if (consent.analytics && !window.gtag) {
-    // Load Google Analytics script
-    const gaScript = document.createElement("script")
-    gaScript.async = true
-    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-95D6D580HV"
-    document.head.appendChild(gaScript)
+    // Google Analytics (GA4)
+    if (consent.analytics && !window.gtag) {
+      // Load Google Analytics script
+      const gaScript = document.createElement("script")
+      gaScript.async = true
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-95D6D580HV"
+      document.head.appendChild(gaScript)
 
-    // Initialize Google Analytics
-    window.dataLayer = window.dataLayer || []
-    function gtag(...args: unknown[]) {
-      window.dataLayer.push(args)
+      // Initialize Google Analytics
+      window.dataLayer = window.dataLayer || []
+      function gtag(...args: unknown[]) {
+        window.dataLayer.push(args)
+      }
+      window.gtag = gtag
+      gtag("js", new Date())
+      gtag("config", "G-95D6D580HV")
     }
-    window.gtag = gtag
-    gtag("js", new Date())
-    gtag("config", "G-95D6D580HV")
-  }
 
   // Meta Pixel
   if (consent.marketing && !window.fbq) {
