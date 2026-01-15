@@ -71,5 +71,35 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     datePublished: "2024-10-12",
   },
+  {
+    id: 7,
+    name: "Călin Bucur",
+    role: "Administrator, The Permanent",
+    content:
+      "Recomand cu toată încrederea! Colaborarea a fost super ușoară de la început: comunicare clară, răbdare și soluții rapide ori de câte ori am avut întrebări sau modificări. Site-ul a ieșit exact cum mi-am dorit — curat, modern și bine optimizat. Se vede că știe ce face și că îi pasă de rezultat, nu doar să ‘bifeze’ proiectul. Mulțumesc mult pentru implicare!",
+    logo: "/partners/The-Permanent-logof-scaled.webp",
+    rating: 5,
+    datePublished: "2024-10-12",
+  },  
+  {
+    id: 8,
+    name: "Alex Benchea",
+    role: "Administrator, Displayer",
+    content:
+      "Am colaborat cu această companie pentru dezvoltarea website-ului și rezultatul a fost la nivelul așteptărilor. Procesul a fost bine structurat, comunicarea eficientă, iar livrarea realizată conform termenelor stabilite. Website-ul este modern, funcțional și aliniat obiectivelor noastre de business.",
+    logo: "/partners/Logo-Displayer-7.svg",
+    rating: 5,
+    datePublished: "2024-10-12",
+  },
+{
+    id: 9,
+    name: "Georgian Dumitru",
+    role: "Production Manager, Radiotron Tehnologies",
+    content:
+      "Vă mulțumesc pentru munca depusă în cadrul proiectului de creare si dezvoltare a website-ului nostru. Apreciez în mod special implicarea echipei, deschiderea la feedback și disponibilitatea de a ajusta soluțiile propuse pe parcursul colaborării. Designul general este modern și bine aliniat cu identitatea vizuală discutată, iar structura site-ului este clară și intuitivă pentru utilizator. Echipa a dat dovadă de profesionalism, creativitate și flexibilitate pe tot parcursul procesului. Am apreciat în mod deosebit abordarea modernă de design, deschiderea față de feedback, comunicarea clară și rapidă si respectarea termenelor asumate. Recomand cu încredere echipa pentru proiecte similare și sper să colaborăm și în viitor. Vă mulțumesc încă o dată!",
+    logo: "/partners/Logo-full-radiotron-2048x378.webp",
+    rating: 5,
+    datePublished: "2024-10-12",
+  },
 ]
 
